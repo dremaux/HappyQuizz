@@ -15,8 +15,6 @@ class QuestionONType extends AbstractType
     {
         $builder
             ->add('text')
-            ->add('type', null, ['data' => 'O/N'])
-            ->add('possible_response', null, ['data' => []] )
         ;
     }
 

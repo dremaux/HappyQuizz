@@ -96,7 +96,7 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
         echo "\" class=\"btn btn-primary\">liste des questions</a>
             <a href=\"";
         // line 12
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.reponse.index");
         echo "\" class=\"btn btn-primary\">liste des reponses</a>
         </div>
         <br>
@@ -213,7 +213,7 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
         <br>
         <div class=\"text-center\">
             <a href=\"{{ path('admin.question.index') }}\" class=\"btn btn-primary\">liste des questions</a>
-            <a href=\"{{ path('admin.question.index') }}\" class=\"btn btn-primary\">liste des reponses</a>
+            <a href=\"{{ path('admin.reponse.index') }}\" class=\"btn btn-primary\">liste des reponses</a>
         </div>
         <br>
 
@@ -254,6 +254,6 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
         </div>
 
     </div>     
-{% endblock %}", "admin/question/index.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\handappy\\templates\\admin\\question\\index.html.twig");
+{% endblock %}", "admin/question/index.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\admin\\question\\index.html.twig");
     }
 }

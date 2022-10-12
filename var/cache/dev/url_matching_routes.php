@@ -28,6 +28,16 @@ return [
         '/admin/question/new/QCM' => [[['_route' => 'admin.question.newQCM', '_controller' => 'App\\Controller\\Admin\\AdminQuestionController::newQCM'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/question/new/ON' => [[['_route' => 'admin.question.newON', '_controller' => 'App\\Controller\\Admin\\AdminQuestionController::newON'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/question/new/Libre' => [[['_route' => 'admin.question.newLibre', '_controller' => 'App\\Controller\\Admin\\AdminQuestionController::newLibre'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/admin/reponse' => [[['_route' => 'admin.reponse.index', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/admin/reponse/new' => [[['_route' => 'admin.reponse.new', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/admin/reponse/choix' => [[['_route' => 'admin.reponse.choix', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::choix'], null, ['GET' => 0], null, false, false, null]],
+        '/admin/reponse/new/QCM' => [[['_route' => 'admin.reponse.newQCM', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::newQCM'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/admin/reponse/new/ON' => [[['_route' => 'admin.reponse.newON', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::newON'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/admin/reponse/new/Libre' => [[['_route' => 'admin.reponse.newLibre', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::newLibre'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/merci' => [
+            [['_route' => 'app_merci', '_controller' => 'App\\Controller\\MerciController::index'], null, null, null, false, false, null],
+            [['_route' => 'merci', '_controller' => 'App\\Controller\\MerciController::index'], null, null, null, false, false, null],
+        ],
         '/biens' => [[['_route' => 'property.index', '_controller' => 'App\\Controller\\PropertyController::index'], null, null, null, false, false, null]],
         '/register' => [
             [['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null],
@@ -38,6 +48,7 @@ return [
             [['_route' => 'randomQuestion', '_controller' => 'App\\Controller\\ShopController::index'], null, null, null, false, false, null],
             [['_route' => 'shop', '_controller' => 'App\\Controller\\ShopController::index'], null, null, null, false, false, null],
         ],
+        '/temp/travaille' => [[['_route' => 'app_temp_travaille', '_controller' => 'App\\Controller\\TempTravailleController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
     ],
@@ -75,11 +86,15 @@ return [
                         .'|/([^/]++)/edit(*:396)'
                         .'|admin/question/delete/([^/]++)(*:434)'
                     .')'
+                    .'|reponse(?'
+                        .'|/([^/]++)/edit(*:467)'
+                        .'|admin/reponse/delete/([^/]++)(*:504)'
+                    .')'
                 .')'
-                .'|/biens/([a-z0-9\\-]*)\\-([^/]++)(*:474)'
+                .'|/biens/([a-z0-9\\-]*)\\-([^/]++)(*:544)'
                 .'|/media/cache/resolve/(?'
-                    .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:536)'
-                    .'|([A-z0-9_-]*)/(.+)(*:562)'
+                    .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:606)'
+                    .'|([A-z0-9_-]*)/(.+)(*:632)'
                 .')'
             .')/?$}sDu',
     ],
@@ -99,9 +114,11 @@ return [
         362 => [[['_route' => 'admin.property.delete', '_controller' => 'App\\Controller\\Admin\\AdminPropertyController::delete'], ['id'], null, null, false, true, null]],
         396 => [[['_route' => 'admin.question.edit', '_controller' => 'App\\Controller\\Admin\\AdminQuestionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         434 => [[['_route' => 'admin.question.delete', '_controller' => 'App\\Controller\\Admin\\AdminQuestionController::delete'], ['id'], null, null, false, true, null]],
-        474 => [[['_route' => 'property.show', '_controller' => 'App\\Controller\\PropertyController::show'], ['slug', 'id'], null, null, false, true, null]],
-        536 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
-        562 => [
+        467 => [[['_route' => 'admin.reponse.edit', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        504 => [[['_route' => 'admin.reponse.delete', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::delete'], ['id'], null, null, false, true, null]],
+        544 => [[['_route' => 'property.show', '_controller' => 'App\\Controller\\PropertyController::show'], ['slug', 'id'], null, null, false, true, null]],
+        606 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
+        632 => [
             [['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

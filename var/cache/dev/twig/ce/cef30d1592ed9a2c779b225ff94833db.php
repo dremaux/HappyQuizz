@@ -88,23 +88,67 @@ class __TwigTemplate_e7cd75a0358b16c289726a2a4b1c15d9 extends Template
 
         // line 9
         echo "
-    ";
-        // line 10
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 10, $this->source); })()), "user", [], "any", false, false, false, 10)) {
-            // line 11
-            echo "        ";
-            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 11, $this->source); })()), "user", [], "any", false, false, false, 11), "role", [], "any", false, false, false, 11) == "Admin")) {
-                // line 12
-                echo "            <a class=\"btn btn-primary mt-4\" href=\"";
-                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
-                echo "\">Pages Admin</a>
+    <body>
+        <div class=\"col text-center\">
+
         ";
-            }
+        // line 13
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "user", [], "any", false, false, false, 13)) {
             // line 14
-            echo "    ";
+            echo "            ";
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 14, $this->source); })()), "user", [], "any", false, false, false, 14), "role", [], "any", false, false, false, 14) == "Admin")) {
+                // line 15
+                echo "                <a class=\"btn btn-primary btn-lg mt-4\" href=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
+                echo "\">
+                    <i class=\"fa-solid fa-user me-2\"></i> Pages Admin
+                </a>
+                ";
+            }
+            // line 19
+            echo "        ";
         }
-        // line 15
-        echo "
+        // line 20
+        echo "        </div>
+        <div class=\"container text-center\">
+            <div class=\"row mt-4\" style=\"height: 100px;\">
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100 h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-calendar-days me-2\"></i> Emploi du temps
+                    </button>
+                </div>
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100 h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-file-contract me-2\"></i> Fiche de paie
+                    </button>
+                </div>
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100 h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-plane-departure me-2\"></i> Congés
+                    </button>
+                </div>
+            </div>
+            <div class=\"row mt-4\" style=\"height: 100px;\">
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100  h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-clock me-2\"></i> Pointage
+                    </button>
+                </div>
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100  h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-umbrella-beach me-2\"></i> CSE
+                    </button>
+                </div>
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100  h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-circle-info me-2\"></i> Information
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -126,7 +170,7 @@ class __TwigTemplate_e7cd75a0358b16c289726a2a4b1c15d9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  107 => 15,  104 => 14,  98 => 12,  95 => 11,  93 => 10,  90 => 9,  80 => 8,  69 => 5,  59 => 4,  36 => 2,);
+        return array (  112 => 20,  109 => 19,  101 => 15,  98 => 14,  96 => 13,  90 => 9,  80 => 8,  69 => 5,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -140,12 +184,56 @@ class __TwigTemplate_e7cd75a0358b16c289726a2a4b1c15d9 extends Template
 
 {% block body %}
 
-    {% if app.user %}
-        {% if app.user.role == \"Admin\" %}
-            <a class=\"btn btn-primary mt-4\" href=\"{{ path('admin') }}\">Pages Admin</a>
-        {% endif %}
-    {% endif %}
+    <body>
+        <div class=\"col text-center\">
 
-{% endblock %}", "pages/home.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\handappy\\templates\\pages\\home.html.twig");
+        {% if app.user %}
+            {% if app.user.role == \"Admin\" %}
+                <a class=\"btn btn-primary btn-lg mt-4\" href=\"{{ path('admin') }}\">
+                    <i class=\"fa-solid fa-user me-2\"></i> Pages Admin
+                </a>
+                {% endif %}
+        {% endif %}
+        </div>
+        <div class=\"container text-center\">
+            <div class=\"row mt-4\" style=\"height: 100px;\">
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100 h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-calendar-days me-2\"></i> Emploi du temps
+                    </button>
+                </div>
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100 h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-file-contract me-2\"></i> Fiche de paie
+                    </button>
+                </div>
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100 h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-plane-departure me-2\"></i> Congés
+                    </button>
+                </div>
+            </div>
+            <div class=\"row mt-4\" style=\"height: 100px;\">
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100  h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-clock me-2\"></i> Pointage
+                    </button>
+                </div>
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100  h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-umbrella-beach me-2\"></i> CSE
+                    </button>
+                </div>
+                <div class=\"col-sm-4\">
+                    <button class=\"btn btn-secondary btn-lg w-100  h-100\" type=\"button\">
+                        <i class=\"fa-solid fa-circle-info me-2\"></i> Information
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+{% endblock %}", "pages/home.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\pages\\home.html.twig");
     }
 }

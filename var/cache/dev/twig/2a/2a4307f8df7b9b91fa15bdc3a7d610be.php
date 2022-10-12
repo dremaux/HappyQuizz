@@ -76,21 +76,13 @@ class __TwigTemplate_3842bd5a56b997079a4ad028254e22e6 extends Template
         // line 8
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), "text", [], "any", false, false, false, 8), 'row');
         echo "
-            ";
-        // line 9
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), "type", [], "any", false, false, false, 9), 'row');
-        echo "
-            ";
-        // line 10
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), "possible_response", [], "any", false, false, false, 10), 'row');
-        echo "
             <button class=\"btn btn-primary\">";
-        // line 11
-        echo twig_escape_filter($this->env, ((array_key_exists("button", $context)) ? (_twig_default_filter((isset($context["button"]) || array_key_exists("button", $context) ? $context["button"] : (function () { throw new RuntimeError('Variable "button" does not exist.', 11, $this->source); })()), "Ajouter")) : ("Ajouter")), "html", null, true);
+        // line 9
+        echo twig_escape_filter($this->env, ((array_key_exists("button", $context)) ? (_twig_default_filter((isset($context["button"]) || array_key_exists("button", $context) ? $context["button"] : (function () { throw new RuntimeError('Variable "button" does not exist.', 9, $this->source); })()), "Ajouter")) : ("Ajouter")), "html", null, true);
         echo "</button>
         ";
-        // line 12
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), 'form_end');
+        // line 10
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form_end', ["render_rest" => false]);
         echo "
     </div>     
 
@@ -115,7 +107,7 @@ class __TwigTemplate_3842bd5a56b997079a4ad028254e22e6 extends Template
 
     public function getDebugInfo()
     {
-        return array (  93 => 12,  89 => 11,  85 => 10,  81 => 9,  77 => 8,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  85 => 10,  81 => 9,  77 => 8,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -128,12 +120,10 @@ class __TwigTemplate_3842bd5a56b997079a4ad028254e22e6 extends Template
         <h1>Créer une nouvelle question ( type oui ou non )</h1>
         {{ form_start(form) }}
             {{ form_row(form.text) }}
-            {{ form_row(form.type) }}
-            {{ form_row(form.possible_response) }}
             <button class=\"btn btn-primary\">{{ button|default('Ajouter') }}</button>
-        {{ form_end(form) }}
+        {{ form_end(form, {'render_rest': false}) }}
     </div>     
 
-{% endblock %}", "admin/question/newON.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\handappy\\templates\\admin\\question\\newON.html.twig");
+{% endblock %}", "admin/question/newON.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\admin\\question\\newON.html.twig");
     }
 }

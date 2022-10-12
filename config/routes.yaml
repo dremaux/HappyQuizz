@@ -20,4 +20,9 @@ register:
 admin:
   path: /admin
   controller: App\Controller\Admin\AdminPropertyController::index
+
+merci:
+  path: /merci
+  controller: App\Controller\MerciController::index
+  
   

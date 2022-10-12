@@ -46,7 +46,7 @@ class ShopController extends AbstractController
 
             $manager->persist($reponse2);
             $manager->flush();
-            //return $this->redirectToRoute('home');
+            return $this->redirectToRoute('merci');
         }
 
         $form2 = $this->createForm(ReponseLibreType::class, $reponse);
@@ -61,7 +61,7 @@ class ShopController extends AbstractController
 
             $manager->persist($reponse2);
             $manager->flush();
-            //return $this->redirectToRoute('merci');
+            return $this->redirectToRoute('merci');
         }
 
         $form3 = $this->createForm(ReponseQCMType::class, $reponse);
@@ -76,7 +76,7 @@ class ShopController extends AbstractController
 
             $manager->persist($reponse2);
             $manager->flush();
-            //return $this->redirectToRoute('merci');
+            return $this->redirectToRoute('merci');
         }
 
         return $this->render('randomQuestion/home.html.twig', [

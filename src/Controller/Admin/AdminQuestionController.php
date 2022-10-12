@@ -76,21 +76,7 @@ class AdminQuestionController extends AbstractController
         ]);
     }
 
-    /*
-     * @Route("admin/option/delete/{id}", name="admin.option.delete")
-     * @param Option $option
-     * @return \Symfony\Component\HttpFoudattion\RedirectResponse
-     
-    public function delete(Option $option, Request $request)
-    {    
-        if ($this->isCsrfTokenValid('delete' . $option->getId(), $request->get('_token')))
-        {
-            $this->em->remove($option);
-            $this->em->flush();
-            $this->addFlash('success', 'suppression de votre bien');
-        }
-        return $this->redirectToRoute('admin.option.index');
-    }*/
+
 
     /**
      * @Route("admin/question/delete/{id}", name="admin.question.delete")
@@ -116,18 +102,30 @@ class AdminQuestionController extends AbstractController
         ]);
     }
 
+
+
+
+
+
     #[Route('/new/QCM', name: 'admin.question.newQCM', methods: ['GET', 'POST'])]
-    public function newQCM(Request $request): Response
+    public function newQCM(Request $request, EntityManagerInterface $manager): Response
     {
         $question = new Question();
-        $form = $this->createForm(QuestionQCMType::class, $question);
+        $user = $this->getUser();
+
+        $form = $this->createForm(QuestionONType::class, $question);
         $form->handleRequest($request);
+        if($form->isSubmitted()) {
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($question);
-            $entityManager->flush();
+            $reponsetest = $form->getData();
+            $reponse2 = new Question();
 
+            $reponse2->setText($reponsetest->getText());
+            $reponse2->settype("QCM");
+            $reponse2->setPossibleResponse(NULL);
+
+            $manager->persist($reponse2);
+            $manager->flush();
             return $this->redirectToRoute('admin.question.index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -138,17 +136,24 @@ class AdminQuestionController extends AbstractController
     }
 
     #[Route('/new/ON', name: 'admin.question.newON', methods: ['GET', 'POST'])]
-    public function newON(Request $request): Response
+    public function newON(Request $request, EntityManagerInterface $manager): Response
     {
         $question = new Question();
+        $user = $this->getUser();
+
         $form = $this->createForm(QuestionONType::class, $question);
         $form->handleRequest($request);
+        if($form->isSubmitted()) {
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($question);
-            $entityManager->flush();
+            $reponsetest = $form->getData();
+            $reponse2 = new Question();
 
+            $reponse2->setText($reponsetest->getText());
+            $reponse2->settype("ON");
+            $reponse2->setPossibleResponse(NULL);
+
+            $manager->persist($reponse2);
+            $manager->flush();
             return $this->redirectToRoute('admin.question.index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -159,17 +164,24 @@ class AdminQuestionController extends AbstractController
     }
 
     #[Route('/new/Libre', name: 'admin.question.newLibre', methods: ['GET', 'POST'])]
-    public function newLibre(Request $request): Response
+    public function newLibre(Request $request, EntityManagerInterface $manager): Response
     {
         $question = new Question();
-        $form = $this->createForm(QuestionLibreType::class, $question);
+        $user = $this->getUser();
+
+        $form = $this->createForm(QuestionONType::class, $question);
         $form->handleRequest($request);
+        if($form->isSubmitted()) {
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($question);
-            $entityManager->flush();
+            $reponsetest = $form->getData();
+            $reponse2 = new Question();
 
+            $reponse2->setText($reponsetest->getText());
+            $reponse2->settype("Libre");
+            $reponse2->setPossibleResponse(NULL);
+
+            $manager->persist($reponse2);
+            $manager->flush();
             return $this->redirectToRoute('admin.question.index', [], Response::HTTP_SEE_OTHER);
         }
 

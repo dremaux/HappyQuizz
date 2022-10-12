@@ -34,6 +34,14 @@ class AdminPropertyController extends AbstractController
         return $this->render('admin/property/index.html.twig', compact('properties'));
     }
 
+
+
+
+
+
+
+
+    
     /**
      * @Route("/admin/property/create", name="admin.property.new")
      */

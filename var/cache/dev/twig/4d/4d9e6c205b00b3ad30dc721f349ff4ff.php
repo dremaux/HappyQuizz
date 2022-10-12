@@ -66,12 +66,12 @@ class __TwigTemplate_c7499b0a2100e7e3a3be31bcab4843bf extends Template
 
         // line 4
         echo "
-    <div class=\"container mt-4\">
-        <h1>Choisissez le type de questions</h1>
+    <div class=\"container mt-4\" style=\"text-align:center\">
+        <h1>Choisissez le type de questions</h1> </br>
         <a href=\"";
         // line 7
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.newQCM");
-        echo "\" class=\"btn btn-primary\">QCM</a>
+        echo "\" class=\"btn btn-primary\">QCM ! non fonctionnel !</a>
         <a href=\"";
         // line 8
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.newON");
@@ -112,13 +112,13 @@ class __TwigTemplate_c7499b0a2100e7e3a3be31bcab4843bf extends Template
 
 {% block body %}
 
-    <div class=\"container mt-4\">
-        <h1>Choisissez le type de questions</h1>
-        <a href=\"{{ path('admin.question.newQCM') }}\" class=\"btn btn-primary\">QCM</a>
+    <div class=\"container mt-4\" style=\"text-align:center\">
+        <h1>Choisissez le type de questions</h1> </br>
+        <a href=\"{{ path('admin.question.newQCM') }}\" class=\"btn btn-primary\">QCM ! non fonctionnel !</a>
         <a href=\"{{ path('admin.question.newON') }}\" class=\"btn btn-primary\">Oui / Non </a>
         <a href=\"{{ path('admin.question.newLibre') }}\" class=\"btn btn-primary\">Question à reponse libre</a>
     </div>     
 
-{% endblock %}", "admin/question/choix.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\handappy\\templates\\admin\\question\\choix.html.twig");
+{% endblock %}", "admin/question/choix.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\admin\\question\\choix.html.twig");
     }
 }

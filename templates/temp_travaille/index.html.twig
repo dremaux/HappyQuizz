@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="alert alert-primary" style="text-align:center" role="alert">
+            {{ app.user.username}}, </br>
+            Tu es connecté sur ton poste de travail depuis maintenant 8 heures.</br>
+            Tes sujets peuvent attendre demain matin.</br>
+            <strong>Une petite promenade, un bon restaurant, un soirée Netflix ?</strong> L'équipe RH t'invite à te déconnecter.
+        </div>
+        
+        <div style="text-align:center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1NwGut8lByA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+{% endblock %}

@@ -13,9 +13,6 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type', ChoiceType::class, ['choices' => $this->getChoices()], [
-                'label' => 'Oui / Non'
-            ])
             ->add('text')
         ;
     }

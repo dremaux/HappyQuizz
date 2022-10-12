@@ -70,7 +70,7 @@ class __TwigTemplate_feaf447c01d0feb9eb74dc90c84b6130 extends Template
         <h1>Créer une nouvelle question ( type text libre )</h1>
         ";
         // line 7
-        echo twig_include($this->env, $context, "admin/agence/_form.html.twig", ["button" => "Ajouter"]);
+        echo twig_include($this->env, $context, "admin/question/_form.html.twig", ["button" => "Ajouter"]);
         echo "
     </div>     
 
@@ -106,9 +106,9 @@ class __TwigTemplate_feaf447c01d0feb9eb74dc90c84b6130 extends Template
 
     <div class=\"container mt-4\">
         <h1>Créer une nouvelle question ( type text libre )</h1>
-        {{ include ('admin/agence/_form.html.twig', {button: 'Ajouter'}) }}
+        {{ include ('admin/question/_form.html.twig', {button: 'Ajouter'}) }}
     </div>     
 
-{% endblock %}", "admin/question/newLibre.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\handappy\\templates\\admin\\question\\newLibre.html.twig");
+{% endblock %}", "admin/question/newLibre.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\admin\\question\\newLibre.html.twig");
     }
 }
