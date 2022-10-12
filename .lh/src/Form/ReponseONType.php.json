@@ -1,0 +1,90 @@
+{
+    "sourceFile": "src/Form/ReponseONType.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 18,
+            "patches": [
+                {
+                    "date": 1665564535150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1665567530794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options)\r\n     {\r\n         $builder\r\n             ->add('id_user')\r\n-            ->add('id_question')\r\n+            ->add('id_question',)\r\n             ->add('value')\r\n         ;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1665567536576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options)\r\n     {\r\n         $builder\r\n             ->add('id_user')\r\n-            ->add('id_question',)\r\n+            ->add('id_question', null, )\r\n             ->add('value')\r\n         ;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1665567546375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options)\r\n     {\r\n         $builder\r\n             ->add('id_user')\r\n-            ->add('id_question', null, )\r\n+            ->add('id_question', null, User)\r\n             ->add('value')\r\n         ;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1665567566061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options)\r\n     {\r\n         $builder\r\n             ->add('id_user')\r\n-            ->add('id_question', null, User)\r\n+            ->add('id_question', null, User->)\r\n             ->add('value')\r\n         ;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1665567571829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options)\r\n     {\r\n         $builder\r\n             ->add('id_user')\r\n-            ->add('id_question', null, User->)\r\n+            ->add('id_question', null, User->get)\r\n             ->add('value')\r\n         ;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1665567577710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options)\r\n     {\r\n         $builder\r\n             ->add('id_user')\r\n-            ->add('id_question', null, User->get)\r\n+            ->add('id_question', null, User->getuser)\r\n             ->add('value')\r\n         ;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1665567583240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options)\r\n     {\r\n         $builder\r\n             ->add('id_user')\r\n-            ->add('id_question', null, User->getuser)\r\n+            ->add('id_question', null, User->getId)\r\n             ->add('value')\r\n         ;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1665567590633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options)\r\n     {\r\n         $builder\r\n             ->add('id_user')\r\n-            ->add('id_question', null, User->getId)\r\n+            ->add('id_question', null, $thisUser->getId())\r\n             ->add('value')\r\n         ;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1665567606010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function buildForm(FormBuilderInterface $builder, array $options)\r\n     {\r\n         $builder\r\n             ->add('id_user')\r\n-            ->add('id_question', null, $thisUser->getId())\r\n+            ->add('id_question')\r\n             ->add('value')\r\n         ;\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1665570019070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     {\r\n         $builder\r\n             ->add('id_user')\r\n             ->add('id_question')\r\n-            ->add('value')\r\n+            ->add('value', Text)\r\n         ;\r\n     }\r\n \r\n     public function configureOptions(OptionsResolver $resolver)\r\n"
+                },
+                {
+                    "date": 1665570025560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \r\n use App\\Entity\\Reponse;\r\n use App\\Entity\\User;\r\n use Symfony\\Component\\Form\\AbstractType;\r\n+use Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\r\n use Symfony\\Component\\Form\\FormBuilderInterface;\r\n use Symfony\\Component\\OptionsResolver\\OptionsResolver;\r\n \r\n class ReponseONType extends AbstractType\r\n@@ -14,9 +15,9 @@\n     {\r\n         $builder\r\n             ->add('id_user')\r\n             ->add('id_question')\r\n-            ->add('value', Text)\r\n+            ->add('value', TextType::class)\r\n         ;\r\n     }\r\n \r\n     public function configureOptions(OptionsResolver $resolver)\r\n"
+                },
+                {
+                    "date": 1665571814549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,14 @@\n     {\r\n         $builder\r\n             ->add('id_user')\r\n             ->add('id_question')\r\n-            ->add('value', TextType::class)\r\n+            ->add('value', ChoiceType::class, [\r\n+                'choices'  => [\r\n+                    'Maybe' => null,\r\n+                    'Yes' => true,\r\n+                    'No' => false,\r\n+                ],)\r\n         ;\r\n     }\r\n \r\n     public function configureOptions(OptionsResolver $resolver)\r\n"
+                },
+                {
+                    "date": 1665571837787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,10 @@\n                 'choices'  => [\r\n                     'Maybe' => null,\r\n                     'Yes' => true,\r\n                     'No' => false,\r\n-                ],)\r\n+                ],\r\n+            ]);\r\n         ;\r\n     }\r\n \r\n     public function configureOptions(OptionsResolver $resolver)\r\n"
+                },
+                {
+                    "date": 1665571845158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,8 @@\n             ->add('id_user')\r\n             ->add('id_question')\r\n             ->add('value', ChoiceType::class, [\r\n                 'choices'  => [\r\n-                    'Maybe' => null,\r\n                     'Yes' => true,\r\n                     'No' => false,\r\n                 ],\r\n             ]);\r\n"
+                },
+                {
+                    "date": 1665571876590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             ->add('id_user')\r\n             ->add('id_question')\r\n             ->add('value', ChoiceType::class, [\r\n                 'choices'  => [\r\n-                    'Yes' => true,\r\n+                    'Yes' => 'true',\r\n                     'No' => false,\r\n                 ],\r\n             ]);\r\n         ;\r\n"
+                },
+                {
+                    "date": 1665571884105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             ->add('id_user')\r\n             ->add('id_question')\r\n             ->add('value', ChoiceType::class, [\r\n                 'choices'  => [\r\n-                    'Yes' => 'true',\r\n+                    'Yes' => \"Oui\",\r\n                     'No' => false,\r\n                 ],\r\n             ]);\r\n         ;\r\n"
+                },
+                {
+                    "date": 1665571890525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n             ->add('id_question')\r\n             ->add('value', ChoiceType::class, [\r\n                 'choices'  => [\r\n                     'Yes' => \"Oui\",\r\n-                    'No' => false,\r\n+                    'No' => \"Non\",\r\n                 ],\r\n             ]);\r\n         ;\r\n     }\r\n"
+                },
+                {
+                    "date": 1665572009390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     {\r\n         $builder\r\n             ->add('id_user')\r\n             ->add('id_question')\r\n-            ->add('value', ChoiceType::class, [\r\n+            ->add('value', ChoiceTyp::class, [\r\n                 'choices'  => [\r\n                     'Yes' => \"Oui\",\r\n                     'No' => \"Non\",\r\n                 ],\r\n"
+                }
+            ],
+            "date": 1665564535150,
+            "name": "Commit-0",
+            "content": "<?php\r\n\r\nnamespace App\\Form;\r\n\r\nuse App\\Entity\\Reponse;\r\nuse App\\Entity\\User;\r\nuse Symfony\\Component\\Form\\AbstractType;\r\nuse Symfony\\Component\\Form\\FormBuilderInterface;\r\nuse Symfony\\Component\\OptionsResolver\\OptionsResolver;\r\n\r\nclass ReponseONType extends AbstractType\r\n{\r\n    public function buildForm(FormBuilderInterface $builder, array $options)\r\n    {\r\n        $builder\r\n            ->add('id_user')\r\n            ->add('id_question')\r\n            ->add('value')\r\n        ;\r\n    }\r\n\r\n    public function configureOptions(OptionsResolver $resolver)\r\n    {\r\n        $resolver->setDefaults([\r\n            'data_class' => Reponse::class,\r\n        ]);\r\n    }\r\n}\r\n"
+        }
+    ]
+}

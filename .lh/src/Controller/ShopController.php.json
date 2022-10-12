@@ -1,0 +1,106 @@
+{
+    "sourceFile": "src/Controller/ShopController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 22,
+            "patches": [
+                {
+                    "date": 1665567907576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1665568142017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,9 @@\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n \r\n             \r\n+\r\n             $reponse = $form->getData();\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n"
+                },
+                {
+                    "date": 1665568435377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n \r\n-            \r\n+            $re\r\n \r\n             $reponse = $form->getData();\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n"
+                },
+                {
+                    "date": 1665568446498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n \r\n-            $re\r\n+            $reponse = $form\r\n \r\n             $reponse = $form->getData();\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n"
+                },
+                {
+                    "date": 1665568464938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n \r\n-            $reponse = $form\r\n+            \r\n \r\n             $reponse = $form->getData();\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n"
+                },
+                {
+                    "date": 1665568509503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n      */\r\n     public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response \r\n     {\r\n         $reponse = new Reponse();\r\n+        \r\n \r\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n"
+                },
+                {
+                    "date": 1665568515832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n      */\r\n     public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response \r\n     {\r\n         $reponse = new Reponse();\r\n-        \r\n+        $user = Us\r\n \r\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n"
+                },
+                {
+                    "date": 1665568523154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n <?php\r\n namespace App\\Controller;\r\n \r\n use App\\Entity\\Reponse;\r\n+use App\\Entity\\User;\r\n use App\\Form\\ReponseONType;\r\n use App\\Repository\\QuestionRepository;\r\n use Doctrine\\ORM\\EntityManagerInterface;\r\n use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\n@@ -26,9 +27,9 @@\n      */\r\n     public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response \r\n     {\r\n         $reponse = new Reponse();\r\n-        $user = Us\r\n+        $user = User->\r\n \r\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n"
+                },
+                {
+                    "date": 1665568553154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n      */\r\n     public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response \r\n     {\r\n         $reponse = new Reponse();\r\n-        $user = User->\r\n+        $user = User->getId\r\n \r\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n"
+                },
+                {
+                    "date": 1665568561607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n      */\r\n     public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response \r\n     {\r\n         $reponse = new Reponse();\r\n-        $user = User->getId\r\n+        $user = $this->User->getId();\r\n \r\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n"
+                },
+                {
+                    "date": 1665568574423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n      */\r\n     public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response \r\n     {\r\n         $reponse = new Reponse();\r\n-        $user = $this->User->getId();\r\n+        $user = $this->User::class->getId();\r\n \r\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n"
+                },
+                {
+                    "date": 1665568588543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n      */\r\n     public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response \r\n     {\r\n         $reponse = new Reponse();\r\n-        $user = $this->User::class->getId();\r\n+        $iduser = $this->User::class->getId();\r\n \r\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n"
+                },
+                {
+                    "date": 1665568594777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,10 @@\n      */\r\n     public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response \r\n     {\r\n         $reponse = new Reponse();\r\n-        $iduser = $this->User::class->getId();\r\n+        $idUser = $this->User::class->getId();\r\n+        \r\n \r\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n"
+                },
+                {
+                    "date": 1665568637559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,9 @@\n \r\n             \r\n \r\n             $reponse = $form->getData();\r\n+            \r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n \r\n"
+                },
+                {
+                    "date": 1665568643283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \r\n             \r\n \r\n             $reponse = $form->getData();\r\n-            \r\n+            $reponse\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n \r\n"
+                },
+                {
+                    "date": 1665568650876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \r\n             \r\n \r\n             $reponse = $form->getData();\r\n-            $reponse\r\n+            $\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n \r\n"
+                },
+                {
+                    "date": 1665568657685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         if($form->isSubmitted()) {\r\n \r\n             \r\n \r\n-            $reponse = $form->getData();\r\n+            $data = $form->getData();\r\n             $\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n"
+                },
+                {
+                    "date": 1665568668416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,12 +34,10 @@\n         $form = $this->createForm(ReponseONType::class, $reponse);\r\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n \r\n-            \r\n-\r\n             $data = $form->getData();\r\n-            $\r\n+            $reponse = new Reponse\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n \r\n"
+                },
+                {
+                    "date": 1665568674689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,10 @@\n         $form->handleRequest($request);\r\n         if($form->isSubmitted()) {\r\n \r\n             $data = $form->getData();\r\n-            $reponse = new Reponse\r\n+            $reponse = new Reponse();\r\n+            \r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n \r\n"
+                },
+                {
+                    "date": 1665568700753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         if($form->isSubmitted()) {\r\n \r\n             $data = $form->getData();\r\n             $reponse = new Reponse();\r\n-            \r\n+            $\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n \r\n"
+                },
+                {
+                    "date": 1665568708365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         if($form->isSubmitted()) {\r\n \r\n             $data = $form->getData();\r\n             $reponse = new Reponse();\r\n-            $\r\n+            $reponse->\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n \r\n"
+                },
+                {
+                    "date": 1665568717024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         if($form->isSubmitted()) {\r\n \r\n             $data = $form->getData();\r\n             $reponse = new Reponse();\r\n-            $reponse->setIdUser($)\r\n+            $reponse->setIdUser($d)\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n \r\n"
+                },
+                {
+                    "date": 1665569007758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n             $data = $form->getData();\r\n             $reponse = new Reponse();\r\n             $reponse->setIdUser($idUser);\r\n             $reponse->setIdQuestion($idQuestion);\r\n-            $reponse->setValue($data[]);\r\n+            $reponse->setValue($data['']);\r\n             $manager->persist($reponse);\r\n             $manager->flush();\r\n         }\r\n \r\n"
+                }
+            ],
+            "date": 1665567907576,
+            "name": "Commit-0",
+            "content": "<?php\r\nnamespace App\\Controller;\r\n\r\nuse App\\Entity\\Reponse;\r\nuse App\\Form\\ReponseONType;\r\nuse App\\Repository\\QuestionRepository;\r\nuse Doctrine\\ORM\\EntityManagerInterface;\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\Request;\r\nuse Symfony\\Component\\HttpFoundation\\Response;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\nuse Twig\\Environment;\r\n\r\n\r\nclass ShopController extends AbstractController\r\n{\r\n\r\n    public function __construct(Environment $twig)\r\n    {\r\n        $this->twig = $twig;\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/randomQuestion\", name=\"randomQuestion\")\r\n     * @return Response\r\n     */\r\n    public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response \r\n    {\r\n        $reponse = new Reponse();\r\n\r\n        $form = $this->createForm(ReponseONType::class, $reponse);\r\n        $form->handleRequest($request);\r\n        if($form->isSubmitted()) {\r\n\r\n            \r\n            $reponse = $form->getData();\r\n            $manager->persist($reponse);\r\n            $manager->flush();\r\n        }\r\n\r\n        return $this->render('randomQuestion/home.html.twig', [\r\n            'question' => $questionRepository->find(random_int(1, $questionRepository->count([]))),\r\n            'form' => $form->createView(),\r\n        ]);\r\n        \r\n    }\r\n\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <h1>Créer une nouvelle question ( type oui ou non )</h1>
+        {{ form_start(form) }}
+            {{ form_row(form.text) }}
+            {{ form_row(form.type) }}
+            {{ form_row(form.possible_response) }}
+            <button class="btn btn-primary">{{ button|default('Ajouter') }}</button>
+        {{ form_end(form) }}
+    </div>     
+
+{% endblock %}

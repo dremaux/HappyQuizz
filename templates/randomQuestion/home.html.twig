@@ -1,0 +1,55 @@
+
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+        
+{% endblock %}
+
+{% block body %}
+
+    {% if app.user %}
+            
+            <td>{{ question.text }}</td>
+            <td>{{ app.user.id }}</td>
+            <td>{{ question.id }}</td>
+
+
+            {% if question.type == "O/N" %}
+
+                {{ form_start(form) }}
+                    <fieldset>
+                        <div>
+                        <input type="radio" id="huey" name="drone" value="huey"
+                                checked>
+                        <label for="huey">Oui</label>
+                        </div>
+
+                        <div>
+                        <input type="radio" id="dewey" name="drone" value="dewey">
+                        <label for="dewey">Non</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="col-md-2">{{ form_row(form.value) }}</div>
+                        <button class="btn btn-primary">{{ button|default('enregistrer') }}</button>
+                {{ form_end(form, {'render_rest': false}) }}
+
+            {% elseif  question.type == "QCM" %}
+
+                {{ form_start(form3) }}
+                    <div class="col-md-2">{{ form_row(form3.value) }}</div>
+                        <button class="btn btn-primary">{{ button|default('enregistrer') }}</button>
+                {{ form_end(form3, {'render_rest': false}) }}
+
+
+            {% else %}
+
+                {{ form_start(form2) }}
+                    <div class="col-md-2">{{ form_row(form2.value) }}</div>
+                        <button class="btn btn-primary">{{ button|default('enregistrer') }}</button>
+                {{ form_end(form2, {'render_rest': false}) }}
+
+            {% endif %}
+    {% endif %}
+
+{% endblock %}

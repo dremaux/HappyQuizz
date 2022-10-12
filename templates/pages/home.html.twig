@@ -1,0 +1,16 @@
+
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+        
+{% endblock %}
+
+{% block body %}
+
+    {% if app.user %}
+        {% if app.user.role == "Admin" %}
+            <a class="btn btn-primary mt-4" href="{{ path('admin') }}">Pages Admin</a>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
