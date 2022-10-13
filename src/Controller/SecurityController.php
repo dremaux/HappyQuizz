@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Security\UsersAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -12,6 +13,8 @@ class SecurityController extends AbstractController
      */
     public function login (AuthenticationUtils $authenticationUtils)
     {
+
+        
 
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();

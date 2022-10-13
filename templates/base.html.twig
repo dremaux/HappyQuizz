@@ -16,7 +16,7 @@
     <body>
          <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
              <div class="container-fluid">
-                 <a class="navbar-brand" href="{{ path('home') }}"><img src="images\properties\acceuil.png" weidht="40" height="40"></a>
+                 <a class="navbar-brand" href="{{ path('authentTemp') }}"><img src="images\properties\acceuil.png" weidht="40" height="40"></a>
                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"></span>
                  </button>
@@ -54,26 +54,28 @@
          {% block body %}{% endblock %}
         
         {% if app.user %}
-            {% if app.request.attributes.get('_route') == "home" %}
+            {% if app.request.attributes.get('_route') == "authentTemp" %}
                 <script>
 
-                    const host          = "http://localhost:8000/"
-                    const popupWidth    = 600;
-                    const popupHeight   = 300;
-
+                    const host = "http://localhost:8000/"
+                    
+                    const questionPopupWidht                = 600;
+                    const questionPopupHeight               = 350;
                     const maxQuestionPopupPerPage           = 1;   
                     const questionPopupMinimumRestartTime   = 20;   // secondes
                     const questionPopupRandomTimeRange      = 5;    // secondes
                     const questionPopupURL                  = host + "randomQuestion";
 
-                    const deconnexionTime       = 600; // secondes
-                    const deconnectionPopupURL  = host + "temps/travail";
+                    const deconnectionPopupWidht    = 600;
+                    const deconnectionPopupHeight   = 580;
+                    const deconnexionTime           = 600; // secondes
+                    const deconnectionPopupURL      = host + "temps/travail";
 
                     var currentTimestamp = Math.floor(Date.now() / 1000);
                     console.log('currentTimestamp', currentTimestamp)
 
-                    popup = function(url, time){
-                        setTimeout(() => window.open(url, "Popup window", `width=${popupWidth} height=${popupHeight} fullscreen="non"`), time * 1000)
+                    popup = function(url, time, widht, height){
+                        setTimeout(() => window.open(url, "Popup window", `width=${widht} height=${height} fullscreen="non"`), time * 1000)
                     };
 
                     // **************** QUESTION ****************
@@ -85,9 +87,8 @@
                         return randomValue;
                     };
 
-                    var lastPopupTimestamp = '{{app.user.lastPopupDate}}';
+                    var lastPopupTimestamp = parseInt('{{app.user.lastPopupDate}}');
                     console.log('popupdate', lastPopupTimestamp)
-                    //var lastPopupTimestamp = 1665501579;
 
                     var randomQuestionPopupTime = 0;
                     if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){
@@ -99,23 +100,21 @@
                     iteration = 0;
                     while (iteration < maxQuestionPopupPerPage){
                         questionPopupTime = randomQuestionPopupTime + iteration * questionPopupMinimumRestartTime + generateQuestionPopupRandomTime();
-                        popup(questionPopupURL, questionPopupTime);
+                        popup(questionPopupURL, questionPopupTime, questionPopupWidht, questionPopupHeight);
                         iteration = iteration + 1;
                         console.log(`question ${iteration}`, questionPopupTime);
                     }
 
-                    // **************** DECONNEXTION ****************
-
-                    var lastConnectionDate = '{{app.user.connectionDate}}';
-                    console.log('conexctiondate', lastConnectionDate)
-                    // var lastConnectionDate = 1665501579;
+                    // **************** DECONNECTION ****************
+                    var lastConnectionDate = parseInt('{{app.user.connectionDate}}');
+                    console.log('connectiondate', lastConnectionDate);
 
                     var timeBeforeDeconnectionPopup = 0
                     if ((lastConnectionDate + deconnexionTime - currentTimestamp) > 0){
                         timeBeforeDeconnectionPopup = lastConnectionDate + deconnexionTime - currentTimestamp;
                     }
-                    console.log('deconnection', timeBeforeDeconnectionPopup);
-                    popup(deconnectionPopupURL, timeBeforeDeconnectionPopup);
+                    console.log('temps travail', timeBeforeDeconnectionPopup);
+                    popup(deconnectionPopupURL, timeBeforeDeconnectionPopup, deconnectionPopupWidht, deconnectionPopupHeight);
 
                 </script>
             {% endif %}

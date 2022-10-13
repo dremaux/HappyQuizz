@@ -8,6 +8,7 @@ use App\Form\ReponseONType;
 use App\Form\ReponseQCMType;
 use App\Repository\QuestionRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,7 +46,13 @@ class ShopController extends AbstractController
         if($form->isSubmitted()) {
 
             $reponseForm = $form->getData();
-            $reponseForm->setIdUser($user->getId());
+
+            if($reponseForm->getAnonymous() == "Oui") {
+                $reponseForm->setIdUser(Null);
+            }else{
+                $reponseForm->setIdUser($user->getId());
+            }
+        
             $reponseForm->setIdQuestion($idQuestion);
 
             $manager->persist($reponseForm);

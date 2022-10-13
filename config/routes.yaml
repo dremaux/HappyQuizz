@@ -24,5 +24,9 @@ admin:
 merci:
   path: /merci
   controller: App\Controller\MerciController::index
+
+authentTemp:
+  path: /authentTemp
+  controller: App\Controller\AuthentTempController::index
   
   

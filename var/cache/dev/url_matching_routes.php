@@ -52,6 +52,7 @@ return [
         '/temps/travail' => [[['_route' => 'app_temps_travail', '_controller' => 'App\\Controller\\TempsTravailController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
+        '/authentTemp' => [[['_route' => 'authentTemp', '_controller' => 'App\\Controller\\AuthentTempController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

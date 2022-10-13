@@ -16,7 +16,8 @@
                 {% if question.type == "O/N" %}
 
                     {{ form_start(form) }}
-                        <div class="col-md-2">{{ form_row(form.value) }}</div>
+                        
+                        <div class="col-md-2">{{ form_row(form.value) }}{{ form_row(form.anonymous) }}</div>
                         <button class="btn btn-primary">{{ button|default('enregistrer') }}</button>
                     {{ form_end(form, {'render_rest': false}) }}
 

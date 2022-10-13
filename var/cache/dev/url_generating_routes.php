@@ -59,4 +59,5 @@ return [
     'register' => [[], ['_controller' => 'App\\Controller\\RegistrationController.php'], [], [['text', '/register']], [], []],
     'admin' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminPropertyController::index'], [], [['text', '/admin']], [], []],
     'merci' => [[], ['_controller' => 'App\\Controller\\MerciController::index'], [], [['text', '/merci']], [], []],
+    'authentTemp' => [[], ['_controller' => 'App\\Controller\\AuthentTempController::index'], [], [['text', '/authentTemp']], [], []],
 ];

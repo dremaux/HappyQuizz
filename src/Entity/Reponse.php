@@ -32,6 +32,11 @@ class Reponse
      */
     private $value;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $anonymous;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Reponse
     public function setValue(string $value): self
     {
         $this->value = $value;
+
+        return $this;
+    }
+
+    public function getAnonymous(): ?string
+    {
+        return $this->anonymous;
+    }
+
+    public function setAnonymous(string $anonymous): self
+    {
+        $this->anonymous = $anonymous;
 
         return $this;
     }

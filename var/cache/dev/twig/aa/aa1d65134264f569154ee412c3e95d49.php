@@ -25,7 +25,6 @@ class __TwigTemplate_359292a897b62f66b434a46d1fda3635 extends Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -56,25 +55,6 @@ class __TwigTemplate_359292a897b62f66b434a46d1fda3635 extends Template
     }
 
     // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Hello MerciController!";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,7 +64,7 @@ class __TwigTemplate_359292a897b62f66b434a46d1fda3635 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 4
         echo "    <div class=\"alert alert-primary\" style=\"text-align:center\" role=\"alert\">
         <div>
             <span style='font-size:100px;'>&#128512;</span>
@@ -114,14 +94,12 @@ class __TwigTemplate_359292a897b62f66b434a46d1fda3635 extends Template
 
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
-
-{% block title %}Hello MerciController!{% endblock %}
 
 {% block body %}
     <div class=\"alert alert-primary\" style=\"text-align:center\" role=\"alert\">
@@ -133,6 +111,6 @@ class __TwigTemplate_359292a897b62f66b434a46d1fda3635 extends Template
         </div>
     </div>
 {% endblock %}
-", "merci/index.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\merci\\index.html.twig");
+", "merci/index.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\HappyQuizz\\templates\\merci\\index.html.twig");
     }
 }

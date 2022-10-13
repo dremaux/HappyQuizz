@@ -19,28 +19,24 @@ class HomeController extends AbstractController
         $this->twig = $twig;
     }
 
+
     /**
      * @Route("/", name="home")
      * @return Response
      */
-    public function index(Request $request, EntityManagerInterface $manager): Response 
+    public function index(EntityManagerInterface $manager): Response
     {
+
         $user = $this->getUser();
-        
-        $form = $this->createForm(CoinsType::class, $user);
-        
-        $form->handleRequest($request);
-        if($form->isSubmitted()) {
-            $user = $form->getData();
-            $manager->persist($user);
-            $manager->flush();
+        if($user){
+        // set connectionDate
+        $user->setConnectionDate(time());
+        $manager->persist($user);
+        $manager->flush();
         }
 
-        return $this->render('pages/home.html.twig', [
-            'form' => $form->createView(),
-        ]);
+        return $this->redirectToRoute('authentTemp');
     }
-
   
 }
 ?>
