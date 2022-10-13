@@ -40,10 +40,11 @@ class ShopController extends AbstractController
         // set response
         $reponse = new Reponse();
         $idQuestion = random_int(1, $questionRepository->count([]));
-
+        $idQuestion2 = $idQuestion;
+        
         $form = $this->createForm(ReponseONType::class, $reponse);
         $form->handleRequest($request);
-        if($form->isSubmitted()) {
+        if($form->isSubmitted() && $idQuestion3 = $idQuestion2 ) {
 
             $reponseForm = $form->getData();
 
@@ -53,7 +54,7 @@ class ShopController extends AbstractController
                 $reponseForm->setIdUser($user->getId());
             }
         
-            $reponseForm->setIdQuestion($idQuestion);
+            $reponseForm->setIdQuestion($idQuestion2);
 
             $manager->persist($reponseForm);
             $manager->flush();
@@ -64,13 +65,17 @@ class ShopController extends AbstractController
         $form2->handleRequest($request);
         if($form2->isSubmitted()) {
 
-            $reponsetest = $form2->getData();
-            $reponse2 = new Reponse();
-            $reponse2->setIdUser($user->getId());
-            $reponse2->setIdQuestion($idQuestion);
-            $reponse2->setValue($reponsetest->getValue());
+            $reponseForm = $form2->getData();
 
-            $manager->persist($reponse2);
+            if($reponseForm->getAnonymous() == "Oui") {
+                $reponseForm->setIdUser(Null);
+            }else{
+                $reponseForm->setIdUser($user->getId());
+            }
+        
+            $reponseForm->setIdQuestion($idQuestion2);
+
+            $manager->persist($reponseForm);
             $manager->flush();
             return $this->redirectToRoute('merci');
         }
@@ -79,19 +84,23 @@ class ShopController extends AbstractController
         $form3->handleRequest($request);
         if($form3->isSubmitted()) {
 
-            $reponsetest = $form3->getData();
-            $reponse2 = new Reponse();
-            $reponse2->setIdUser($user->getId());
-            $reponse2->setIdQuestion($idQuestion);
-            $reponse2->setValue($reponsetest->getValue());
+            $reponseForm = $form3->getData();
 
-            $manager->persist($reponse2);
+            if($reponseForm->getAnonymous() == "Oui") {
+                $reponseForm->setIdUser(Null);
+            }else{
+                $reponseForm->setIdUser($user->getId());
+            }
+        
+            $reponseForm->setIdQuestion($idQuestion2);
+
+            $manager->persist($reponseForm);
             $manager->flush();
             return $this->redirectToRoute('merci');
         }
 
         return $this->render('randomQuestion/home.html.twig', [
-            'question' => $questionRepository->find($idQuestion),
+            'question' => $questionRepository->find($idQuestion2),
             'form' => $form->createView(),
             'form2' => $form2->createView(),
             'form3' => $form3->createView()

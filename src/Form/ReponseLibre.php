@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Reponse;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,18 @@ class ReponseLibreType extends AbstractType
         $builder
             ->add('id_user')
             ->add('id_question')
-            ->add('value')
+            ->add('value', null, array(
+                'label' => " "
+            )) 
+            ->add('anonymous', ChoiceType::class, array(
+                'choices' => [
+                    'Oui' => "Oui",
+                    'Non' => "Non",
+                ],
+                'label' => 'Rester anonyme',
+                'multiple' => false,
+                'expanded' => true,
+            ))
         ;
     }
 

@@ -93,11 +93,11 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
             <a href=\"";
         // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.index");
-        echo "\" class=\"btn btn-primary\">liste des questions</a>
+        echo "\" class=\"btn btn-primary\">Liste des questions</a>
             <a href=\"";
         // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.reponse.index");
-        echo "\" class=\"btn btn-primary\">liste des reponses</a>
+        echo "\" class=\"btn btn-primary\">Liste des réponses</a>
         </div>
         <br>
 
@@ -123,36 +123,53 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
         <table class=\"table table-striped\">
             <thead>
             <tr>
-                <th>Nom</th>
+                <th>Questions</th>
+                <th>Type</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
             ";
-        // line 30
+        // line 31
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["questions"]) || array_key_exists("questions", $context) ? $context["questions"] : (function () { throw new RuntimeError('Variable "questions" does not exist.', 30, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["questions"]) || array_key_exists("questions", $context) ? $context["questions"] : (function () { throw new RuntimeError('Variable "questions" does not exist.', 31, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["question"]) {
-            // line 31
+            // line 32
             echo "            <tr>
                 <td>";
-            // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["question"], "text", [], "any", false, false, false, 32), "html", null, true);
+            // line 33
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["question"], "text", [], "any", false, false, false, 33), "html", null, true);
             echo "</td>
 
+                ";
+            // line 35
+            if ((twig_get_attribute($this->env, $this->source, $context["question"], "type", [], "any", false, false, false, 35) == "O/N")) {
+                // line 36
+                echo "                    <td>Question Fermée</td>           
+                ";
+            } else {
+                // line 38
+                echo "                    <td>Question ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["question"], "type", [], "any", false, false, false, 38), "html", null, true);
+                echo "</td>
+                ";
+            }
+            // line 40
+            echo "                
+
                 <td><a href=\"";
-            // line 34
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.edit", ["id" => twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 34)]), "html", null, true);
+            // line 42
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.edit", ["id" => twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 42)]), "html", null, true);
             echo "\" class=\"btn btn-secondary\">Editer</a>
 
                     <form methode=\"post\" action=\"";
-            // line 36
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.delete", ["id" => twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 36)]), "html", null, true);
+            // line 44
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.delete", ["id" => twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 44)]), "html", null, true);
             echo "\" style=\"display: inline-block\" onsubmit=\"return confirm('êtes vous vraiment sûr ?')\">
                         <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
                         <input type=\"hidden\" name=\"_token\" value=\"";
-            // line 38
-            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 38))), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 46))), "html", null, true);
             echo "\">
                         <button class=\"btn btn-danger\">Supprimer</button>
                     </form>
@@ -164,13 +181,13 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['question'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 45
+        // line 53
         echo "            </tbody>
         </table>
 
         <div class=\"text-center\">
             <a href=\"";
-        // line 49
+        // line 57
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.choix");
         echo "\" class=\"btn btn-primary\">Ajouter une nouvelle question</a>
         </div>
@@ -197,7 +214,7 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
 
     public function getDebugInfo()
     {
-        return array (  174 => 49,  168 => 45,  155 => 38,  150 => 36,  145 => 34,  140 => 32,  137 => 31,  133 => 30,  122 => 21,  113 => 18,  110 => 17,  106 => 16,  99 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  191 => 57,  185 => 53,  172 => 46,  167 => 44,  162 => 42,  158 => 40,  152 => 38,  148 => 36,  146 => 35,  141 => 33,  138 => 32,  134 => 31,  122 => 21,  113 => 18,  110 => 17,  106 => 16,  99 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -212,8 +229,8 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
         <h1>Gestion des questions</h1>
         <br>
         <div class=\"text-center\">
-            <a href=\"{{ path('admin.question.index') }}\" class=\"btn btn-primary\">liste des questions</a>
-            <a href=\"{{ path('admin.reponse.index') }}\" class=\"btn btn-primary\">liste des reponses</a>
+            <a href=\"{{ path('admin.question.index') }}\" class=\"btn btn-primary\">Liste des questions</a>
+            <a href=\"{{ path('admin.reponse.index') }}\" class=\"btn btn-primary\">Liste des réponses</a>
         </div>
         <br>
 
@@ -226,7 +243,8 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
         <table class=\"table table-striped\">
             <thead>
             <tr>
-                <th>Nom</th>
+                <th>Questions</th>
+                <th>Type</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -234,6 +252,13 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
             {% for question in questions %}
             <tr>
                 <td>{{ question.text }}</td>
+
+                {% if question.type == 'O/N' %}
+                    <td>Question Fermée</td>           
+                {% else %}
+                    <td>Question {{ question.type }}</td>
+                {% endif %}
+                
 
                 <td><a href=\"{{ path('admin.question.edit', {id: question.id}) }}\" class=\"btn btn-secondary\">Editer</a>
 
@@ -254,6 +279,6 @@ class __TwigTemplate_4393e14af91e683200beed1e12ed75ec extends Template
         </div>
 
     </div>     
-{% endblock %}", "admin/question/index.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\admin\\question\\index.html.twig");
+{% endblock %}", "admin/question/index.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\HappyQuizz\\templates\\admin\\question\\index.html.twig");
     }
 }

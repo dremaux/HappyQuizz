@@ -101,7 +101,7 @@ class __TwigTemplate_e7cd75a0358b16c289726a2a4b1c15d9 extends Template
                 echo "                <a class=\"btn btn-primary btn-lg mt-4\" href=\"";
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
                 echo "\">
-                    <i class=\"fa-solid fa-user me-2\"></i> Pages Admin
+                    <i class=\"fa-solid fa-user me-2\"></i> Page Admin
                 </a>
                 ";
             }
@@ -141,7 +141,7 @@ class __TwigTemplate_e7cd75a0358b16c289726a2a4b1c15d9 extends Template
                 </div>
                 <div class=\"col-sm-4\">
                     <button class=\"btn btn-secondary btn-lg w-100  h-100\" type=\"button\">
-                        <i class=\"fa-solid fa-circle-info me-2\"></i> Information
+                        <i class=\"fa-solid fa-circle-info me-2\"></i> Informations
                     </button>
                 </div>
             </div>
@@ -190,7 +190,7 @@ class __TwigTemplate_e7cd75a0358b16c289726a2a4b1c15d9 extends Template
         {% if app.user %}
             {% if app.user.role == \"Admin\" %}
                 <a class=\"btn btn-primary btn-lg mt-4\" href=\"{{ path('admin') }}\">
-                    <i class=\"fa-solid fa-user me-2\"></i> Pages Admin
+                    <i class=\"fa-solid fa-user me-2\"></i> Page Admin
                 </a>
                 {% endif %}
         {% endif %}
@@ -226,7 +226,7 @@ class __TwigTemplate_e7cd75a0358b16c289726a2a4b1c15d9 extends Template
                 </div>
                 <div class=\"col-sm-4\">
                     <button class=\"btn btn-secondary btn-lg w-100  h-100\" type=\"button\">
-                        <i class=\"fa-solid fa-circle-info me-2\"></i> Information
+                        <i class=\"fa-solid fa-circle-info me-2\"></i> Informations
                     </button>
                 </div>
             </div>
@@ -234,6 +234,6 @@ class __TwigTemplate_e7cd75a0358b16c289726a2a4b1c15d9 extends Template
     </body>
 
 
-{% endblock %}", "pages/home.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\pages\\home.html.twig");
+{% endblock %}", "pages/home.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\HappyQuizz\\templates\\pages\\home.html.twig");
     }
 }

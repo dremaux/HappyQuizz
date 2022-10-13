@@ -152,18 +152,19 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
                 echo "                <script>
 
                     const host = \"http://localhost:8000/\"
+
+                    const questionPopupWidht        = 600;
+                    const questionPopupHeight       = 350;
+                    const deconnectionPopupWidht    = 600;
+                    const deconnectionPopupHeight   = 580;
                     
-                    const questionPopupWidht                = 600;
-                    const questionPopupHeight               = 350;
-                    const maxQuestionPopupPerPage           = 1;   
+                    const maxQuestionPopupPerPage           = 2;   
                     const questionPopupMinimumRestartTime   = 20;   // secondes
                     const questionPopupRandomTimeRange      = 5;    // secondes
                     const questionPopupURL                  = host + \"randomQuestion\";
 
-                    const deconnectionPopupWidht    = 600;
-                    const deconnectionPopupHeight   = 580;
-                    const deconnexionTime           = 600; // secondes
-                    const deconnectionPopupURL      = host + \"temps/travail\";
+                    const deconnexionTime       = 45; // secondes
+                    const deconnectionPopupURL  = host + \"temps/travail\";
 
                     var currentTimestamp = Math.floor(Date.now() / 1000);
                     console.log('currentTimestamp', currentTimestamp)
@@ -182,8 +183,8 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
                     };
 
                     var lastPopupTimestamp = parseInt('";
-                // line 90
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 90, $this->source); })()), "user", [], "any", false, false, false, 90), "lastPopupDate", [], "any", false, false, false, 90), "html", null, true);
+                // line 91
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 91, $this->source); })()), "user", [], "any", false, false, false, 91), "lastPopupDate", [], "any", false, false, false, 91), "html", null, true);
                 echo "');
                     console.log('popupdate', lastPopupTimestamp)
 
@@ -204,8 +205,8 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
 
                     // **************** DECONNECTION ****************
                     var lastConnectionDate = parseInt('";
-                // line 109
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 109, $this->source); })()), "user", [], "any", false, false, false, 109), "connectionDate", [], "any", false, false, false, 109), "html", null, true);
+                // line 110
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 110, $this->source); })()), "user", [], "any", false, false, false, 110), "connectionDate", [], "any", false, false, false, 110), "html", null, true);
                 echo "');
                     console.log('connectiondate', lastConnectionDate);
 
@@ -219,7 +220,7 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
                 </script>
             ";
             }
-            // line 121
+            // line 122
             echo "        ";
         }
         echo " 
@@ -234,9 +235,9 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
          </script>
  
          ";
-        // line 132
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 133
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 134
         echo "    </body>
  </html>";
         
@@ -302,7 +303,7 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
 
     }
 
-    // line 132
+    // line 133
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -332,7 +333,7 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
 
     public function getDebugInfo()
     {
-        return array (  306 => 132,  288 => 54,  270 => 13,  251 => 7,  240 => 133,  238 => 132,  223 => 121,  208 => 109,  186 => 90,  152 => 58,  149 => 57,  147 => 56,  144 => 55,  142 => 54,  136 => 50,  129 => 46,  123 => 43,  119 => 41,  116 => 40,  109 => 36,  105 => 34,  102 => 33,  100 => 32,  97 => 31,  90 => 27,  86 => 25,  84 => 24,  76 => 19,  69 => 14,  67 => 13,  60 => 9,  55 => 7,  47 => 1,);
+        return array (  307 => 133,  289 => 54,  271 => 13,  252 => 7,  241 => 134,  239 => 133,  224 => 122,  209 => 110,  187 => 91,  152 => 58,  149 => 57,  147 => 56,  144 => 55,  142 => 54,  136 => 50,  129 => 46,  123 => 43,  119 => 41,  116 => 40,  109 => 36,  105 => 34,  102 => 33,  100 => 32,  97 => 31,  90 => 27,  86 => 25,  84 => 24,  76 => 19,  69 => 14,  67 => 13,  60 => 9,  55 => 7,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -397,18 +398,19 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
                 <script>
 
                     const host = \"http://localhost:8000/\"
+
+                    const questionPopupWidht        = 600;
+                    const questionPopupHeight       = 350;
+                    const deconnectionPopupWidht    = 600;
+                    const deconnectionPopupHeight   = 580;
                     
-                    const questionPopupWidht                = 600;
-                    const questionPopupHeight               = 350;
-                    const maxQuestionPopupPerPage           = 1;   
+                    const maxQuestionPopupPerPage           = 2;   
                     const questionPopupMinimumRestartTime   = 20;   // secondes
                     const questionPopupRandomTimeRange      = 5;    // secondes
                     const questionPopupURL                  = host + \"randomQuestion\";
 
-                    const deconnectionPopupWidht    = 600;
-                    const deconnectionPopupHeight   = 580;
-                    const deconnexionTime           = 600; // secondes
-                    const deconnectionPopupURL      = host + \"temps/travail\";
+                    const deconnexionTime       = 45; // secondes
+                    const deconnectionPopupURL  = host + \"temps/travail\";
 
                     var currentTimestamp = Math.floor(Date.now() / 1000);
                     console.log('currentTimestamp', currentTimestamp)

@@ -16,8 +16,9 @@
                 {% if question.type == "O/N" %}
 
                     {{ form_start(form) }}
-                        
-                        <div class="col-md-2">{{ form_row(form.value) }}{{ form_row(form.anonymous) }}</div>
+
+                        <div class="col-md-2">{{ form_row(form.value) }}</div>
+                        <div class="col-md-2">{{ form_row(form.anonymous) }}</div>
                         <button class="btn btn-primary">{{ button|default('enregistrer') }}</button>
                     {{ form_end(form, {'render_rest': false}) }}
 
@@ -25,13 +26,15 @@
 
                     {{ form_start(form3) }}
                         <div class="col-md-2">{{ form_row(form3.value) }}</div>
+                        <div class="col-md-2">{{ form_row(form3.anonymous) }}</div>
                         <button class="btn btn-primary">{{ button|default('enregistrer') }}</button>
                     {{ form_end(form3, {'render_rest': false}) }}
 
                 {% else %}
 
                     {{ form_start(form2) }}
-                        <div class="col-md-2">{{ form_row(form2.value) }}</div>
+                        <div class="col-md-12">{{ form_row(form2.value) }}</div>
+                        <div class="col-md-2">{{ form_row(form2.anonymous) }}</div>
                         <button class="btn btn-primary">{{ button|default('enregistrer') }}</button>
                     {{ form_end(form2, {'render_rest': false}) }}
 

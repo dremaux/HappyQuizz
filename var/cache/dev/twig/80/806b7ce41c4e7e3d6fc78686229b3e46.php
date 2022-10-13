@@ -93,11 +93,11 @@ class __TwigTemplate_d635048c46199b54ce67ab292c0f1ae4 extends Template
             <a href=\"";
         // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.question.index");
-        echo "\" class=\"btn btn-primary\">liste des questions</a>
+        echo "\" class=\"btn btn-primary\">Liste des questions</a>
             <a href=\"";
         // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.reponse.index");
-        echo "\" class=\"btn btn-primary\">liste des reponses</a>
+        echo "\" class=\"btn btn-primary\">Liste des reponses</a>
         </div>
         <br>
 
@@ -119,55 +119,102 @@ class __TwigTemplate_d635048c46199b54ce67ab292c0f1ae4 extends Template
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 21
-        echo "
-        <table class=\"table table-striped\">
+        echo "            ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["questions"]) || array_key_exists("questions", $context) ? $context["questions"] : (function () { throw new RuntimeError('Variable "questions" does not exist.', 21, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["question"]) {
+            // line 22
+            echo "           
+            <br><br><br>
+
+            <h4>";
+            // line 25
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 25), "html", null, true);
+            echo " - ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["question"], "text", [], "any", false, false, false, 25), "html", null, true);
+            echo "</h4>
+
+            <table class=\"table table-striped\">
             <thead>
             <tr>
-                <th>Nom</th>
-                <th>Actions</th>
+                <th>Employé</th>
+                <th>Réponse</th>
             </tr>
             </thead>
             <tbody>
-            ";
-        // line 30
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["reponses"]) || array_key_exists("reponses", $context) ? $context["reponses"] : (function () { throw new RuntimeError('Variable "reponses" does not exist.', 30, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["reponse"]) {
-            // line 31
-            echo "            <tr>
-                <td>";
-            // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reponse"], "value", [], "any", false, false, false, 32), "html", null, true);
-            echo "</td>
+                ";
+            // line 35
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["reponses"]) || array_key_exists("reponses", $context) ? $context["reponses"] : (function () { throw new RuntimeError('Variable "reponses" does not exist.', 35, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["reponse"]) {
+                // line 36
+                echo "                    ";
+                if ((twig_get_attribute($this->env, $this->source, $context["reponse"], "getIdQuestion", [], "method", false, false, false, 36) == twig_get_attribute($this->env, $this->source, $context["question"], "id", [], "any", false, false, false, 36))) {
+                    // line 37
+                    echo "                        <tr>
+                            <td>
+                                ";
+                    // line 39
+                    if (twig_get_attribute($this->env, $this->source, $context["reponse"], "getIdUser", [], "method", false, false, false, 39)) {
+                        // line 40
+                        echo "                                    
+                                    ";
+                        // line 41
+                        $context['_parent'] = $context;
+                        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 41, $this->source); })()));
+                        foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
+                            // line 42
+                            echo "                                        ";
+                            if ((twig_get_attribute($this->env, $this->source, $context["reponse"], "getIdUser", [], "method", false, false, false, 42) == twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 42))) {
+                                // line 43
+                                echo "                                            ";
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "userName", [], "any", false, false, false, 43), "html", null, true);
+                                echo "
+                                        ";
+                            }
+                            // line 45
+                            echo "                                    ";
+                        }
+                        $_parent = $context['_parent'];
+                        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
+                        $context = array_intersect_key($context, $_parent) + $_parent;
+                        // line 46
+                        echo "                                ";
+                    } else {
+                        // line 47
+                        echo "                                    Anonyme
+                                ";
+                    }
+                    // line 49
+                    echo "                            </td>
+                            <td>";
+                    // line 50
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reponse"], "value", [], "any", false, false, false, 50), "html", null, true);
+                    echo "</td>
 
-                <td><a href=\"";
-            // line 34
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.reponse.edit", ["id" => twig_get_attribute($this->env, $this->source, $context["reponse"], "id", [], "any", false, false, false, 34)]), "html", null, true);
-            echo "\" class=\"btn btn-secondary\">Editer</a>
+                        </tr>
+                    ";
+                }
+                // line 54
+                echo "
+                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reponse'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 56
+            echo "
+            </tbody>
+            </table>
 
-                    <form methode=\"post\" action=\"";
-            // line 36
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin.reponse.delete", ["id" => twig_get_attribute($this->env, $this->source, $context["reponse"], "id", [], "any", false, false, false, 36)]), "html", null, true);
-            echo "\" style=\"display: inline-block\" onsubmit=\"return confirm('êtes vous vraiment sûr ?')\">
-                        <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
-                        <input type=\"hidden\" name=\"_token\" value=\"";
-            // line 38
-            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["reponse"], "id", [], "any", false, false, false, 38))), "html", null, true);
-            echo "\">
-                        <button class=\"btn btn-danger\">Supprimer</button>
-                    </form>
-                    
-                </td>
-            </tr>        
+                
             ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reponse'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['question'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 45
-        echo "            </tbody>
-        </table>
-
+        // line 62
+        echo "
     </div>     
 ";
         
@@ -190,7 +237,7 @@ class __TwigTemplate_d635048c46199b54ce67ab292c0f1ae4 extends Template
 
     public function getDebugInfo()
     {
-        return array (  168 => 45,  155 => 38,  150 => 36,  145 => 34,  140 => 32,  137 => 31,  133 => 30,  122 => 21,  113 => 18,  110 => 17,  106 => 16,  99 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  217 => 62,  206 => 56,  199 => 54,  192 => 50,  189 => 49,  185 => 47,  182 => 46,  176 => 45,  170 => 43,  167 => 42,  163 => 41,  160 => 40,  158 => 39,  154 => 37,  151 => 36,  147 => 35,  132 => 25,  127 => 22,  122 => 21,  113 => 18,  110 => 17,  106 => 16,  99 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -205,8 +252,8 @@ class __TwigTemplate_d635048c46199b54ce67ab292c0f1ae4 extends Template
         <h1>Gestion des reponses</h1>
         <br>
         <div class=\"text-center\">
-            <a href=\"{{ path('admin.question.index') }}\" class=\"btn btn-primary\">liste des questions</a>
-            <a href=\"{{ path('admin.reponse.index') }}\" class=\"btn btn-primary\">liste des reponses</a>
+            <a href=\"{{ path('admin.question.index') }}\" class=\"btn btn-primary\">Liste des questions</a>
+            <a href=\"{{ path('admin.reponse.index') }}\" class=\"btn btn-primary\">Liste des reponses</a>
         </div>
         <br>
 
@@ -215,34 +262,49 @@ class __TwigTemplate_d635048c46199b54ce67ab292c0f1ae4 extends Template
         {{ message }}
         </div>
         {% endfor %}
+            {% for question in questions %}
+           
+            <br><br><br>
 
-        <table class=\"table table-striped\">
+            <h4>{{ question.id }} - {{ question.text }}</h4>
+
+            <table class=\"table table-striped\">
             <thead>
             <tr>
-                <th>Nom</th>
-                <th>Actions</th>
+                <th>Employé</th>
+                <th>Réponse</th>
             </tr>
             </thead>
             <tbody>
-            {% for reponse in reponses %}
-            <tr>
-                <td>{{ reponse.value }}</td>
+                {% for reponse in reponses %}
+                    {% if reponse.getIdQuestion() == question.id %}
+                        <tr>
+                            <td>
+                                {% if reponse.getIdUser() %}
+                                    
+                                    {% for user in users %}
+                                        {% if reponse.getIdUser() == user.id %}
+                                            {{ user.userName }}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    Anonyme
+                                {% endif %}
+                            </td>
+                            <td>{{ reponse.value }}</td>
 
-                <td><a href=\"{{ path('admin.reponse.edit', {id: reponse.id}) }}\" class=\"btn btn-secondary\">Editer</a>
+                        </tr>
+                    {% endif %}
 
-                    <form methode=\"post\" action=\"{{ path('admin.reponse.delete', {id: reponse.id}) }}\" style=\"display: inline-block\" onsubmit=\"return confirm('êtes vous vraiment sûr ?')\">
-                        <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
-                        <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ reponse.id) }}\">
-                        <button class=\"btn btn-danger\">Supprimer</button>
-                    </form>
-                    
-                </td>
-            </tr>        
-            {% endfor %}
+                {% endfor %}
+
             </tbody>
-        </table>
+            </table>
+
+                
+            {% endfor %}
 
     </div>     
-{% endblock %}", "admin/reponse/index.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\admin\\reponse\\index.html.twig");
+{% endblock %}", "admin/reponse/index.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\HappyQuizz\\templates\\admin\\reponse\\index.html.twig");
     }
 }

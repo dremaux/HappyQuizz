@@ -8,7 +8,9 @@ use App\Form\ReponseLibreType;
 use App\Form\ReponseONType;
 use App\Form\ReponseQCMType;
 use App\Repository\OptionRepository;
+use App\Repository\QuestionRepository;
 use App\Repository\ReponseRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,10 +31,12 @@ class AdminReponseController extends AbstractController
     }
 
     #[Route('/', name: 'admin.reponse.index', methods: ['GET'])]
-    public function index(ReponseRepository $reponseRepository): Response
+    public function index(ReponseRepository $reponseRepository, QuestionRepository $questionReponsitory, UserRepository $userRepository): Response
     {
         return $this->render('admin/reponse/index.html.twig', [
-            'reponses' => $reponseRepository->findAll(),
+            'reponses'  => $reponseRepository->findAll(),
+            'questions' => $questionReponsitory->findAll(),
+            'users'     => $userRepository->findAll()
         ]);
     }
 

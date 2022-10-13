@@ -101,7 +101,7 @@ class __TwigTemplate_1ac4972380582942e8485e2c7cc5a95e extends Template
     <a class=\"btn btn-primary my-3\" href=\"";
         // line 25
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("register");
-        echo "\">je n'ai pas de compte</a>
+        echo "\">Je n'ai pas de compte</a>
 
 </div>
 ";
@@ -154,9 +154,9 @@ class __TwigTemplate_1ac4972380582942e8485e2c7cc5a95e extends Template
         <button type=\"submit\" class=\"btn btn-primary\">Se connecter</button>
         
     </form>
-    <a class=\"btn btn-primary my-3\" href=\"{{ path('register') }}\">je n'ai pas de compte</a>
+    <a class=\"btn btn-primary my-3\" href=\"{{ path('register') }}\">Je n'ai pas de compte</a>
 
 </div>
-{% endblock %}", "security/login.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\security\\login.html.twig");
+{% endblock %}", "security/login.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\HappyQuizz\\templates\\security\\login.html.twig");
     }
 }

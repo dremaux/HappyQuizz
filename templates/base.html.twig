@@ -58,18 +58,19 @@
                 <script>
 
                     const host = "http://localhost:8000/"
+
+                    const questionPopupWidht        = 600;
+                    const questionPopupHeight       = 350;
+                    const deconnectionPopupWidht    = 600;
+                    const deconnectionPopupHeight   = 580;
                     
-                    const questionPopupWidht                = 600;
-                    const questionPopupHeight               = 350;
-                    const maxQuestionPopupPerPage           = 1;   
+                    const maxQuestionPopupPerPage           = 2;   
                     const questionPopupMinimumRestartTime   = 20;   // secondes
                     const questionPopupRandomTimeRange      = 5;    // secondes
                     const questionPopupURL                  = host + "randomQuestion";
 
-                    const deconnectionPopupWidht    = 600;
-                    const deconnectionPopupHeight   = 580;
-                    const deconnexionTime           = 600; // secondes
-                    const deconnectionPopupURL      = host + "temps/travail";
+                    const deconnexionTime       = 45; // secondes
+                    const deconnectionPopupURL  = host + "temps/travail";
 
                     var currentTimestamp = Math.floor(Date.now() / 1000);
                     console.log('currentTimestamp', currentTimestamp)

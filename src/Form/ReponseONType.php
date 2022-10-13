@@ -17,14 +17,7 @@ class ReponseONType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            // ->add('id_user', ChoiceType::class, array(
-            //     'choices' => [
-            //         "Oui" => 0
-            //     ],
-            //     'label' => 'Rester anonyme',
-            //     'multiple' => true,
-            //     'expanded' => true,
-            //     ))
+            
             ->add('id_user')
             ->add('id_question')
             ->add('value', ChoiceType::class, array(
@@ -46,7 +39,6 @@ class ReponseONType extends AbstractType
                 'expanded' => true,
             ))
                
-        ;
         ;
     }
 
