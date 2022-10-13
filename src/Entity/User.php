@@ -53,6 +53,11 @@ class User extends AbstractController implements UserInterface, \Serializable
      */
     private $connectionDate;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $randomNumber;
+
     public function __construct()
     {
         $this->responses = new ArrayCollection();
@@ -177,6 +182,18 @@ class User extends AbstractController implements UserInterface, \Serializable
     public function setConnectionDate(?int $connectionDate): self
     {
         $this->connectionDate = $connectionDate;
+
+        return $this;
+    }
+
+    public function getRandomNumber(): ?int
+    {
+        return $this->randomNumber;
+    }
+
+    public function setRandomNumber(int $randomNumber): self
+    {
+        $this->randomNumber = $randomNumber;
 
         return $this;
     }

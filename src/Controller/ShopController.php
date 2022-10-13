@@ -7,6 +7,7 @@ use App\Form\ReponseLibreType;
 use App\Form\ReponseONType;
 use App\Form\ReponseQCMType;
 use App\Repository\QuestionRepository;
+use App\Repository\RandomNumberRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,19 +33,25 @@ class ShopController extends AbstractController
     {
         $user = $this->getUser();
         
-        // set lastPopupDate
-        $user->setLastPopupDate(time());
-        $manager->persist($user);
-        $manager->flush();
+        // gitan style
+        $gitanList = array(2,2,8,8,12,12,1,1,8,8,7,7,6,6,20,20,18,18,14,14,3,3,9,9,1,1);
+        $gitanIndex = $user->getRandomNumber();
+        $idQuestion2 = $gitanList[$gitanIndex];
         
+        // $user->setRandomNumber($randomNumber);
+        // $user->setLastPopupDate(time());
+        // $manager->persist($user);
+        // $manager->flush();
+
+        
+
         // set response
-        $reponse = new Reponse();
-        $idQuestion = random_int(1, $questionRepository->count([]));
-        $idQuestion2 = $idQuestion;
         
-        $form = $this->createForm(ReponseONType::class, $reponse);
+        // $idQuestion = random_int(1, $questionRepository->count([]));
+        
+        $form = $this->createForm(ReponseONType::class);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $idQuestion3 = $idQuestion2 ) {
+        if($form->isSubmitted()) {
 
             $reponseForm = $form->getData();
 
@@ -58,10 +65,13 @@ class ShopController extends AbstractController
 
             $manager->persist($reponseForm);
             $manager->flush();
+            $user->setRandomNumber($gitanIndex + 1);
+            $manager->persist($user);
+            $manager->flush();
             return $this->redirectToRoute('merci');
         }
 
-        $form2 = $this->createForm(ReponseLibreType::class, $reponse);
+        $form2 = $this->createForm(ReponseLibreType::class);
         $form2->handleRequest($request);
         if($form2->isSubmitted()) {
 
@@ -77,10 +87,13 @@ class ShopController extends AbstractController
 
             $manager->persist($reponseForm);
             $manager->flush();
+            $user->setRandomNumber($gitanIndex + 1);
+            $manager->persist($user);
+            $manager->flush();
             return $this->redirectToRoute('merci');
         }
 
-        $form3 = $this->createForm(ReponseQCMType::class, $reponse);
+        $form3 = $this->createForm(ReponseQCMType::class);
         $form3->handleRequest($request);
         if($form3->isSubmitted()) {
 
@@ -96,8 +109,15 @@ class ShopController extends AbstractController
 
             $manager->persist($reponseForm);
             $manager->flush();
+            $user->setRandomNumber($gitanIndex + 1);
+            $manager->persist($user);
+            $manager->flush();
             return $this->redirectToRoute('merci');
         }
+
+        $user->setRandomNumber($gitanIndex + 1);
+        $manager->persist($user);
+        $manager->flush();
 
         return $this->render('randomQuestion/home.html.twig', [
             'question' => $questionRepository->find($idQuestion2),

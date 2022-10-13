@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerCsiaGWa\App_KernelDevDebugContainer([
     'container.build_hash' => 'CsiaGWa',
-    'container.build_id' => '3da9bd1c',
-    'container.build_time' => 1665661640,
+    'container.build_id' => '11d7ad75',
+    'container.build_time' => 1665678596,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerCsiaGWa');

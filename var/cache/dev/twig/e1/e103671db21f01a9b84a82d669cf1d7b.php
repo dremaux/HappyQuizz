@@ -97,6 +97,8 @@ class __TwigTemplate_2aebcf2ec357156cab66edd4ca094b0b extends Template
             echo "                
             <td>";
             // line 14
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["question"]) || array_key_exists("question", $context) ? $context["question"] : (function () { throw new RuntimeError('Variable "question" does not exist.', 14, $this->source); })()), "id", [], "any", false, false, false, 14), "html", null, true);
+            echo ": ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["question"]) || array_key_exists("question", $context) ? $context["question"] : (function () { throw new RuntimeError('Variable "question" does not exist.', 14, $this->source); })()), "text", [], "any", false, false, false, 14), "html", null, true);
             echo "</td>
 
@@ -207,7 +209,7 @@ class __TwigTemplate_2aebcf2ec357156cab66edd4ca094b0b extends Template
 
     public function getDebugInfo()
     {
-        return array (  188 => 44,  184 => 42,  178 => 39,  174 => 38,  170 => 37,  166 => 36,  162 => 35,  159 => 34,  153 => 31,  149 => 30,  145 => 29,  141 => 28,  137 => 27,  134 => 26,  132 => 25,  127 => 23,  123 => 22,  119 => 21,  115 => 20,  110 => 18,  107 => 17,  105 => 16,  100 => 14,  97 => 13,  95 => 12,  90 => 9,  80 => 8,  69 => 5,  59 => 4,  36 => 2,);
+        return array (  190 => 44,  186 => 42,  180 => 39,  176 => 38,  172 => 37,  168 => 36,  164 => 35,  161 => 34,  155 => 31,  151 => 30,  147 => 29,  143 => 28,  139 => 27,  136 => 26,  134 => 25,  129 => 23,  125 => 22,  121 => 21,  117 => 20,  112 => 18,  109 => 17,  107 => 16,  100 => 14,  97 => 13,  95 => 12,  90 => 9,  80 => 8,  69 => 5,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -225,7 +227,7 @@ class __TwigTemplate_2aebcf2ec357156cab66edd4ca094b0b extends Template
         
         {% if app.user %}
                 
-            <td>{{ question.text }}</td>
+            <td>{{ question.id }}: {{ question.text }}</td>
 
                 {% if question.type == \"O/N\" %}
 
