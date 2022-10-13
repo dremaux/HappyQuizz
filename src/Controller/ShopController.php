@@ -29,22 +29,26 @@ class ShopController extends AbstractController
      */
     public function index(Request $request, EntityManagerInterface $manager, QuestionRepository $questionRepository): Response
     {
-        $reponse = new Reponse();
         $user = $this->getUser();
-
+        
+        // set lastPopupDate
+        $user->setLastPopupDate(time());
+        $manager->persist($user);
+        $manager->flush();
+        
+        // set response
+        $reponse = new Reponse();
         $idQuestion = random_int(1, $questionRepository->count([]));
 
         $form = $this->createForm(ReponseONType::class, $reponse);
         $form->handleRequest($request);
         if($form->isSubmitted()) {
 
-            $reponsetest = $form->getData();
-            $reponse2 = new Reponse();
-            $reponse2->setIdUser($user->getId());
-            $reponse2->setIdQuestion($idQuestion);
-            $reponse2->setValue($reponsetest->getValue());
+            $reponseForm = $form->getData();
+            $reponseForm->setIdUser($user->getId());
+            $reponseForm->setIdQuestion($idQuestion);
 
-            $manager->persist($reponse2);
+            $manager->persist($reponseForm);
             $manager->flush();
             return $this->redirectToRoute('merci');
         }

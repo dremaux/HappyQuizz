@@ -1,0 +1,18 @@
+{
+    "sourceFile": "templates/merci/index.html.twig",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1665648547436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1665648547436,
+            "name": "Commit-0",
+            "content": "{% extends 'base.html.twig' %}\r\n\r\n{% block body %}\r\n    <div class=\"alert alert-primary\" style=\"text-align:center\" role=\"alert\">\r\n        <div>\r\n            <span style='font-size:100px;'>&#128512;</span>\r\n        </div>\r\n        <div>\r\n            <strong>Merci pour ta participation !</strong>\r\n        </div>\r\n    </div>\r\n{% endblock %}\r\n"
+        }
+    ]
+}

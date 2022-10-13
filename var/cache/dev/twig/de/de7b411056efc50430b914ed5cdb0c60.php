@@ -147,13 +147,80 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 56, $this->source); })()), "user", [], "any", false, false, false, 56)) {
             // line 57
             echo "            ";
-            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 57, $this->source); })()), "request", [], "any", false, false, false, 57), "attributes", [], "any", false, false, false, 57), "get", [0 => "_route"], "method", false, false, false, 57) != "randomQuestion")) {
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 57, $this->source); })()), "request", [], "any", false, false, false, 57), "attributes", [], "any", false, false, false, 57), "get", [0 => "_route"], "method", false, false, false, 57) == "home")) {
                 // line 58
-                echo "                ";
-                // line 99
-                echo "            ";
+                echo "                <script>
+
+                    const host          = \"http://localhost:8000/\"
+                    const popupWidth    = 600;
+                    const popupHeight   = 300;
+
+                    const maxQuestionPopupPerPage           = 1;   
+                    const questionPopupMinimumRestartTime   = 20;   // secondes
+                    const questionPopupRandomTimeRange      = 5;    // secondes
+                    const questionPopupURL                  = host + \"randomQuestion\";
+
+                    const deconnexionTime       = 600; // secondes
+                    const deconnectionPopupURL  = host + \"temps/travail\";
+
+                    var currentTimestamp = Math.floor(Date.now() / 1000);
+                    console.log('currentTimestamp', currentTimestamp)
+
+                    popup = function(url, time){
+                        setTimeout(() => window.open(url, \"Popup window\", `width=\${popupWidth} height=\${popupHeight} fullscreen=\"non\"`), time * 1000)
+                    };
+
+                    // **************** QUESTION ****************
+
+                    function generateQuestionPopupRandomTime() {
+                        var min = 0;
+                        var max = questionPopupRandomTimeRange;
+                        randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
+                        return randomValue;
+                    };
+
+                    var lastPopupTimestamp = '";
+                // line 88
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 88, $this->source); })()), "user", [], "any", false, false, false, 88), "lastPopupDate", [], "any", false, false, false, 88), "html", null, true);
+                echo "';
+                    console.log('popupdate', lastPopupTimestamp)
+                    //var lastPopupTimestamp = 1665501579;
+
+                    var randomQuestionPopupTime = 0;
+                    if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){
+                        randomQuestionPopupTime = generateQuestionPopupRandomTime();
+                    }else{
+                        randomQuestionPopupTime = generateQuestionPopupRandomTime() + (lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp);
+                    }
+
+                    iteration = 0;
+                    while (iteration < maxQuestionPopupPerPage){
+                        questionPopupTime = randomQuestionPopupTime + iteration * questionPopupMinimumRestartTime + generateQuestionPopupRandomTime();
+                        popup(questionPopupURL, questionPopupTime);
+                        iteration = iteration + 1;
+                        console.log(`question \${iteration}`, questionPopupTime);
+                    }
+
+                    // **************** DECONNEXTION ****************
+
+                    var lastConnectionDate = '";
+                // line 109
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 109, $this->source); })()), "user", [], "any", false, false, false, 109), "connectionDate", [], "any", false, false, false, 109), "html", null, true);
+                echo "';
+                    console.log('conexctiondate', lastConnectionDate)
+                    // var lastConnectionDate = 1665501579;
+
+                    var timeBeforeDeconnectionPopup = 0
+                    if ((lastConnectionDate + deconnexionTime - currentTimestamp) > 0){
+                        timeBeforeDeconnectionPopup = lastConnectionDate + deconnexionTime - currentTimestamp;
+                    }
+                    console.log('deconnection', timeBeforeDeconnectionPopup);
+                    popup(deconnectionPopupURL, timeBeforeDeconnectionPopup);
+
+                </script>
+            ";
             }
-            // line 100
+            // line 122
             echo "        ";
         }
         echo " 
@@ -168,9 +235,9 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
          </script>
  
          ";
-        // line 111
+        // line 133
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 112
+        // line 134
         echo "    </body>
  </html>";
         
@@ -191,7 +258,7 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "AndHappy";
+        echo "HappyQuizz";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -236,7 +303,7 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
 
     }
 
-    // line 111
+    // line 133
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -266,7 +333,7 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
 
     public function getDebugInfo()
     {
-        return array (  240 => 111,  222 => 54,  204 => 13,  185 => 7,  174 => 112,  172 => 111,  157 => 100,  154 => 99,  152 => 58,  149 => 57,  147 => 56,  144 => 55,  142 => 54,  136 => 50,  129 => 46,  123 => 43,  119 => 41,  116 => 40,  109 => 36,  105 => 34,  102 => 33,  100 => 32,  97 => 31,  90 => 27,  86 => 25,  84 => 24,  76 => 19,  69 => 14,  67 => 13,  60 => 9,  55 => 7,  47 => 1,);
+        return array (  307 => 133,  289 => 54,  271 => 13,  252 => 7,  241 => 134,  239 => 133,  224 => 122,  208 => 109,  184 => 88,  152 => 58,  149 => 57,  147 => 56,  144 => 55,  142 => 54,  136 => 50,  129 => 46,  123 => 43,  119 => 41,  116 => 40,  109 => 36,  105 => 34,  102 => 33,  100 => 32,  97 => 31,  90 => 27,  86 => 25,  84 => 24,  76 => 19,  69 => 14,  67 => 13,  60 => 9,  55 => 7,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -277,7 +344,7 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
          <meta charset=\"UTF-8\">
          <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
          <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
-         <title>{% block title %}AndHappy{% endblock %}</title>
+         <title>{% block title %}HappyQuizz{% endblock %}</title>
          
          <link rel=\"stylesheet\" href=\"{{ asset('css/indexe.css') }}\">
          <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">
@@ -327,17 +394,30 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
          {% block body %}{% endblock %}
         
         {% if app.user %}
-            {% if app.request.attributes.get('_route') != \"randomQuestion\" %}
-                {# <script>
+            {% if app.request.attributes.get('_route') == \"home\" %}
+                <script>
 
+                    const host          = \"http://localhost:8000/\"
                     const popupWidth    = 600;
                     const popupHeight   = 300;
 
-                    const maxQuestionPopupPerPage           = 2;
-                    const questionPopupMinimumRestartTime   = 100;   //secondes
-                    const questionPopupRandomTimeRange      = 3;    //secondes
-                    const questionPopupURL                  = \"http://localhost:8000/randomQuestion\";
-                    
+                    const maxQuestionPopupPerPage           = 1;   
+                    const questionPopupMinimumRestartTime   = 20;   // secondes
+                    const questionPopupRandomTimeRange      = 5;    // secondes
+                    const questionPopupURL                  = host + \"randomQuestion\";
+
+                    const deconnexionTime       = 600; // secondes
+                    const deconnectionPopupURL  = host + \"temps/travail\";
+
+                    var currentTimestamp = Math.floor(Date.now() / 1000);
+                    console.log('currentTimestamp', currentTimestamp)
+
+                    popup = function(url, time){
+                        setTimeout(() => window.open(url, \"Popup window\", `width=\${popupWidth} height=\${popupHeight} fullscreen=\"non\"`), time * 1000)
+                    };
+
+                    // **************** QUESTION ****************
+
                     function generateQuestionPopupRandomTime() {
                         var min = 0;
                         var max = questionPopupRandomTimeRange;
@@ -345,30 +425,39 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
                         return randomValue;
                     };
 
-                    randomQuestionPopup = function(randomQuestionPopupTime){
-                        setTimeout(() => window.open(questionPopupURL, \"Popup window\", `width=\${popupWidth} height=\${popupHeight}`), randomQuestionPopupTime * 1000)
-                    };
-                    
                     var lastPopupTimestamp = '{{app.user.lastPopupDate}}';
-                    var currentTimestamp = Math.floor(Date.now() / 1000);
-                    var randomQuestionPopupTime = 0;
+                    console.log('popupdate', lastPopupTimestamp)
+                    //var lastPopupTimestamp = 1665501579;
 
-                    if ((lastPopupTimestamp - currentTimestamp + questionPopupMinimumRestartTime) < 0){
+                    var randomQuestionPopupTime = 0;
+                    if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){
                         randomQuestionPopupTime = generateQuestionPopupRandomTime();
                     }else{
-                        randomQuestionPopupTime = generateQuestionPopupRandomTime() + (lastPopupTimestamp - currentTimestamp + questionPopupMinimumRestartTime);
+                        randomQuestionPopupTime = generateQuestionPopupRandomTime() + (lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp);
                     }
 
                     iteration = 0;
                     while (iteration < maxQuestionPopupPerPage){
                         questionPopupTime = randomQuestionPopupTime + iteration * questionPopupMinimumRestartTime + generateQuestionPopupRandomTime();
-                        console.log(iteration, questionPopupTime);
-                        randomQuestionPopup(questionPopupTime);
+                        popup(questionPopupURL, questionPopupTime);
                         iteration = iteration + 1;
+                        console.log(`question \${iteration}`, questionPopupTime);
                     }
-                    
-                    
-                </script> #}
+
+                    // **************** DECONNEXTION ****************
+
+                    var lastConnectionDate = '{{app.user.connectionDate}}';
+                    console.log('conexctiondate', lastConnectionDate)
+                    // var lastConnectionDate = 1665501579;
+
+                    var timeBeforeDeconnectionPopup = 0
+                    if ((lastConnectionDate + deconnexionTime - currentTimestamp) > 0){
+                        timeBeforeDeconnectionPopup = lastConnectionDate + deconnexionTime - currentTimestamp;
+                    }
+                    console.log('deconnection', timeBeforeDeconnectionPopup);
+                    popup(deconnectionPopupURL, timeBeforeDeconnectionPopup);
+
+                </script>
             {% endif %}
         {% endif %} 
        
@@ -383,6 +472,6 @@ class __TwigTemplate_e8aa4d165802b2417b7e82f250827b48 extends Template
  
          {% block javascripts %}{% endblock %}
     </body>
- </html>", "base.html.twig", "C:\\Users\\lucas\\Documents\\GitHub\\HappyQuizz\\templates\\base.html.twig");
+ </html>", "base.html.twig", "C:\\Users\\Lucas.DREMAUX\\Documents\\GitHub\\HappyQuizz\\templates\\base.html.twig");
     }
 }

@@ -34,6 +34,7 @@ return [
         '/admin/reponse/new/QCM' => [[['_route' => 'admin.reponse.newQCM', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::newQCM'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/reponse/new/ON' => [[['_route' => 'admin.reponse.newON', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::newON'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/reponse/new/Libre' => [[['_route' => 'admin.reponse.newLibre', '_controller' => 'App\\Controller\\Admin\\AdminReponseController::newLibre'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/authent/temp' => [[['_route' => 'app_authent_temp', '_controller' => 'App\\Controller\\AuthentTempController::index'], null, null, null, false, false, null]],
         '/merci' => [
             [['_route' => 'app_merci', '_controller' => 'App\\Controller\\MerciController::index'], null, null, null, false, false, null],
             [['_route' => 'merci', '_controller' => 'App\\Controller\\MerciController::index'], null, null, null, false, false, null],
@@ -48,7 +49,7 @@ return [
             [['_route' => 'randomQuestion', '_controller' => 'App\\Controller\\ShopController::index'], null, null, null, false, false, null],
             [['_route' => 'shop', '_controller' => 'App\\Controller\\ShopController::index'], null, null, null, false, false, null],
         ],
-        '/temp/travaille' => [[['_route' => 'app_temp_travaille', '_controller' => 'App\\Controller\\TempTravailleController::index'], null, null, null, false, false, null]],
+        '/temps/travail' => [[['_route' => 'app_temps_travail', '_controller' => 'App\\Controller\\TempsTravailController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout'], null, null, null, false, false, null]],
     ],

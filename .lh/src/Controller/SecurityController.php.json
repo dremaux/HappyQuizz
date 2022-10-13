@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/Controller/SecurityController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1665647533671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1665647563971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,12 +12,8 @@\n      */\r\n     public function login (AuthenticationUtils $authenticationUtils)\r\n     {\r\n \r\n-        // set lastPopupDate\r\n-        $user->setLastPopupDate(time());\r\n-        $manager->persist($user);\r\n-        $manager->flush();\r\n         \r\n \r\n         $error = $authenticationUtils->getLastAuthenticationError();\r\n         $lastUsername = $authenticationUtils->getLastUsername();\r\n"
+                },
+                {
+                    "date": 1665647570071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n         \r\n \r\n         $error = $authenticationUtils->getLastAuthenticationError();\r\n         $lastUsername = $authenticationUtils->getLastUsername();\r\n+\r\n         return $this->render('security/login.html.twig', [\r\n             'last_username' => $lastUsername,\r\n             'error' => $error\r\n         ]);\r\n"
+                },
+                {
+                    "date": 1665647577850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,13 +12,10 @@\n      */\r\n     public function login (AuthenticationUtils $authenticationUtils)\r\n     {\r\n \r\n-        \r\n-\r\n         $error = $authenticationUtils->getLastAuthenticationError();\r\n         $lastUsername = $authenticationUtils->getLastUsername();\r\n-\r\n         return $this->render('security/login.html.twig', [\r\n             'last_username' => $lastUsername,\r\n             'error' => $error\r\n         ]);\r\n"
+                }
+            ],
+            "date": 1665647533671,
+            "name": "Commit-0",
+            "content": "<?php\r\nnamespace App\\Controller;\r\n\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\nuse Symfony\\Component\\Security\\Http\\Authentication\\AuthenticationUtils;\r\n\r\nclass SecurityController extends AbstractController\r\n{\r\n    /**\r\n     *@Route(\"/login\", name=\"login\")\r\n     */\r\n    public function login (AuthenticationUtils $authenticationUtils)\r\n    {\r\n\r\n        // set lastPopupDate\r\n        $user->setLastPopupDate(time());\r\n        $manager->persist($user);\r\n        $manager->flush();\r\n        \r\n\r\n        $error = $authenticationUtils->getLastAuthenticationError();\r\n        $lastUsername = $authenticationUtils->getLastUsername();\r\n        return $this->render('security/login.html.twig', [\r\n            'last_username' => $lastUsername,\r\n            'error' => $error\r\n        ]);\r\n    }\r\n}\r\n\r\n?>"
+        }
+    ]
+}

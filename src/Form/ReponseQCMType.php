@@ -16,7 +16,6 @@ class ReponseQCMType extends AbstractType
             ->add('id_user')
             ->add('id_question')
             ->add('value')
-            
         ;
     }
 

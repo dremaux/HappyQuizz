@@ -1,0 +1,58 @@
+{
+    "sourceFile": "public/script/popup.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1665646904286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1665646924257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n const questionPopupRandomTimeRange      = 5;    // secondes\n const questionPopupURL                  = host + \"randomQuestion\";\n \n const deconnexionTime       = 600; // secondes\n-const deconnectionPopupURL  = host + \"/temps/travail\";\n+const deconnectionPopupURL  = host + \"temps/travail\";\n \n var currentTimestamp = Math.floor(Date.now() / 1000);\n \n popup = function(url, time){\n@@ -24,9 +24,9 @@\n     randomValue = Math.floor(Math.random() * (max - min + 1)) + min;\n     return randomValue;\n };\n \n-// var lastPopupTimestamp = '{{app.user.lastPopupDate}}';\n+var lastPopupTimestamp = '{{app.user.lastPopupDate}}';\n var lastPopupTimestamp = 1665501579;\n \n var randomQuestionPopupTime = 0;\n if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){\n"
+                },
+                {
+                    "date": 1665648972199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     return randomValue;\n };\n \n var lastPopupTimestamp = '{{app.user.lastPopupDate}}';\n-var lastPopupTimestamp = 1665501579;\n+//var lastPopupTimestamp = 1665501579;\n \n var randomQuestionPopupTime = 0;\n if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){\n     randomQuestionPopupTime = generateQuestionPopupRandomTime();\n@@ -44,9 +44,9 @@\n }\n \n // **************** DECONNEXTION ****************\n \n-// var lastConnectionDate = '{{app.user.connectionDate}}';\n+//var lastConnectionDate = '{{app.user.connectionDate}}';\n var lastConnectionDate = 1665501579;\n \n var timeBeforeDeconnectionPopup = 0\n if ((lastConnectionDate + deconnexionTime - currentTimestamp) > 0){\n"
+                },
+                {
+                    "date": 1665648979064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,10 +44,10 @@\n }\n \n // **************** DECONNEXTION ****************\n \n-//var lastConnectionDate = '{{app.user.connectionDate}}';\n-var lastConnectionDate = 1665501579;\n+var lastConnectionDate = '{{app.user.connectionDate}}';\n+// var lastConnectionDate = 1665501579;\n \n var timeBeforeDeconnectionPopup = 0\n if ((lastConnectionDate + deconnexionTime - currentTimestamp) > 0){\n     timeBeforeDeconnectionPopup = lastConnectionDate + deconnexionTime - currentTimestamp;\n"
+                },
+                {
+                    "date": 1665649034072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n     return randomValue;\n };\n \n var lastPopupTimestamp = '{{app.user.lastPopupDate}}';\n+\n //var lastPopupTimestamp = 1665501579;\n \n var randomQuestionPopupTime = 0;\n if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){\n"
+                },
+                {
+                    "date": 1665649042566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     return randomValue;\n };\n \n var lastPopupTimestamp = '{{app.user.lastPopupDate}}';\n-\n+console.log()\n //var lastPopupTimestamp = 1665501579;\n \n var randomQuestionPopupTime = 0;\n if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){\n"
+                },
+                {
+                    "date": 1665649050174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     return randomValue;\n };\n \n var lastPopupTimestamp = '{{app.user.lastPopupDate}}';\n-console.log()\n+console.log('popupdate')\n //var lastPopupTimestamp = 1665501579;\n \n var randomQuestionPopupTime = 0;\n if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){\n"
+                },
+                {
+                    "date": 1665649056011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     return randomValue;\n };\n \n var lastPopupTimestamp = '{{app.user.lastPopupDate}}';\n-console.log('popupdate')\n+console.log('popupdate',lastPopupTimestamp )\n //var lastPopupTimestamp = 1665501579;\n \n var randomQuestionPopupTime = 0;\n if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){\n"
+                },
+                {
+                    "date": 1665649066549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     return randomValue;\n };\n \n var lastPopupTimestamp = '{{app.user.lastPopupDate}}';\n-console.log('popupdate',lastPopupTimestamp )\n+console.log('popupdate', lastPopupTimestamp)\n //var lastPopupTimestamp = 1665501579;\n \n var randomQuestionPopupTime = 0;\n if ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){\n"
+                },
+                {
+                    "date": 1665649077389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,9 @@\n \n // **************** DECONNEXTION ****************\n \n var lastConnectionDate = '{{app.user.connectionDate}}';\n+console.log('popupdate', lastPopupTimestamp)\n // var lastConnectionDate = 1665501579;\n \n var timeBeforeDeconnectionPopup = 0\n if ((lastConnectionDate + deconnexionTime - currentTimestamp) > 0){\n"
+                },
+                {
+                    "date": 1665649083759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n \n // **************** DECONNEXTION ****************\n \n var lastConnectionDate = '{{app.user.connectionDate}}';\n-console.log('popupdate', lastPopupTimestamp)\n+console.log('conexctiondate', lastPopupTimestamp)\n // var lastConnectionDate = 1665501579;\n \n var timeBeforeDeconnectionPopup = 0\n if ((lastConnectionDate + deconnexionTime - currentTimestamp) > 0){\n"
+                }
+            ],
+            "date": 1665646904286,
+            "name": "Commit-0",
+            "content": "const host          = \"http://localhost:8000/\"\nconst popupWidth    = 600;\nconst popupHeight   = 300;\n\nconst maxQuestionPopupPerPage           = 1;   \nconst questionPopupMinimumRestartTime   = 20;   // secondes\nconst questionPopupRandomTimeRange      = 5;    // secondes\nconst questionPopupURL                  = host + \"randomQuestion\";\n\nconst deconnexionTime       = 600; // secondes\nconst deconnectionPopupURL  = host + \"/temps/travail\";\n\nvar currentTimestamp = Math.floor(Date.now() / 1000);\n\npopup = function(url, time){\n    setTimeout(() => window.open(url, \"Popup window\", `width=${popupWidth} height=${popupHeight} fullscreen=\"non\"`), time * 1000)\n};\n\n// **************** QUESTION ****************\n\nfunction generateQuestionPopupRandomTime() {\n    var min = 0;\n    var max = questionPopupRandomTimeRange;\n    randomValue = Math.floor(Math.random() * (max - min + 1)) + min;\n    return randomValue;\n};\n\n// var lastPopupTimestamp = '{{app.user.lastPopupDate}}';\nvar lastPopupTimestamp = 1665501579;\n\nvar randomQuestionPopupTime = 0;\nif ((lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp) < 0){\n    randomQuestionPopupTime = generateQuestionPopupRandomTime();\n}else{\n    randomQuestionPopupTime = generateQuestionPopupRandomTime() + (lastPopupTimestamp + questionPopupMinimumRestartTime - currentTimestamp);\n}\n\niteration = 0;\nwhile (iteration < maxQuestionPopupPerPage){\n    questionPopupTime = randomQuestionPopupTime + iteration * questionPopupMinimumRestartTime + generateQuestionPopupRandomTime();\n    popup(questionPopupURL, questionPopupTime);\n    iteration = iteration + 1;\n    console.log(`question ${iteration}`, questionPopupTime);\n}\n\n// **************** DECONNEXTION ****************\n\n// var lastConnectionDate = '{{app.user.connectionDate}}';\nvar lastConnectionDate = 1665501579;\n\nvar timeBeforeDeconnectionPopup = 0\nif ((lastConnectionDate + deconnexionTime - currentTimestamp) > 0){\n    timeBeforeDeconnectionPopup = lastConnectionDate + deconnexionTime - currentTimestamp;\n}\nconsole.log('deconnection', timeBeforeDeconnectionPopup);\npopup(deconnectionPopupURL, timeBeforeDeconnectionPopup);"
+        }
+    ]
+}

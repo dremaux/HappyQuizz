@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/Controller/TempsTravailController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1665646964125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1665648655830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n     #[Route('/temps/travail', name: 'app_temps_travail')]\r\n     public function index(): Response\r\n     {\r\n         \r\n+        \r\n \r\n         return $this->render('temps_travail/index.html.twig', [\r\n             'controller_name' => 'TempsTravailController',\r\n         ]);\r\n"
+                },
+                {
+                    "date": 1665648665731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,16 @@\n {\r\n     #[Route('/temps/travail', name: 'app_temps_travail')]\r\n     public function index(): Response\r\n     {\r\n+        $user = $this->getUser();\r\n         \r\n-        \r\n+        // set lastPopupDate\r\n+        $user->setLastPopupDate(time());\r\n+        $manager->persist($user);\r\n+        $manager->flush();\r\n \r\n+\r\n         return $this->render('temps_travail/index.html.twig', [\r\n             'controller_name' => 'TempsTravailController',\r\n         ]);\r\n     }\r\n"
+                },
+                {
+                    "date": 1665648677745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \r\n class TempsTravailController extends AbstractController\r\n {\r\n     #[Route('/temps/travail', name: 'app_temps_travail')]\r\n-    public function index(): Response\r\n+    public function index(, EntityManagerInterface $manager): Response\r\n     {\r\n         $user = $this->getUser();\r\n         \r\n         // set lastPopupDate\r\n"
+                },
+                {
+                    "date": 1665648683089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,17 @@\n <?php\r\n \r\n namespace App\\Controller;\r\n \r\n+use Doctrine\\ORM\\EntityManagerInterface;\r\n use Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\n use Symfony\\Component\\HttpFoundation\\Response;\r\n use Symfony\\Component\\Routing\\Annotation\\Route;\r\n \r\n class TempsTravailController extends AbstractController\r\n {\r\n     #[Route('/temps/travail', name: 'app_temps_travail')]\r\n-    public function index(, EntityManagerInterface $manager): Response\r\n+    public function index(EntityManagerInterface $manager): Response\r\n     {\r\n         $user = $this->getUser();\r\n         \r\n         // set lastPopupDate\r\n"
+                },
+                {
+                    "date": 1665648696090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function index(EntityManagerInterface $manager): Response\r\n     {\r\n         $user = $this->getUser();\r\n         \r\n-        // set lastPopupDate\r\n+        // set lastConneDate\r\n         $user->setLastPopupDate(time());\r\n         $manager->persist($user);\r\n         $manager->flush();\r\n \r\n"
+                },
+                {
+                    "date": 1665648724244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     public function index(EntityManagerInterface $manager): Response\r\n     {\r\n         $user = $this->getUser();\r\n         \r\n-        // set lastConneDate\r\n+        // set connectionDate\r\n         $user->setLastPopupDate(time());\r\n         $manager->persist($user);\r\n         $manager->flush();\r\n \r\n"
+                },
+                {
+                    "date": 1665648730750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,13 +14,13 @@\n     {\r\n         $user = $this->getUser();\r\n         \r\n         // set connectionDate\r\n-        $user->setLastPopupDate(time());\r\n+        $user->setConnectionDate(time());\r\n         $manager->persist($user);\r\n         $manager->flush();\r\n \r\n-\r\n+        \r\n         return $this->render('temps_travail/index.html.twig', [\r\n             'controller_name' => 'TempsTravailController',\r\n         ]);\r\n     }\r\n"
+                },
+                {
+                    "date": 1665648749085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n         // set connectionDate\r\n         $user->setConnectionDate(time());\r\n         $manager->persist($user);\r\n         $manager->flush();\r\n+        return $this->redirectToRoute('merci');\r\n \r\n-        \r\n         return $this->render('temps_travail/index.html.twig', [\r\n             'controller_name' => 'TempsTravailController',\r\n         ]);\r\n     }\r\n"
+                },
+                {
+                    "date": 1665648794429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         // set connectionDate\r\n         $user->setConnectionDate(time());\r\n         $manager->persist($user);\r\n         $manager->flush();\r\n-        return $this->redirectToRoute('merci');\r\n+        return $this->redirectToRoute('home');\r\n \r\n         return $this->render('temps_travail/index.html.twig', [\r\n             'controller_name' => 'TempsTravailController',\r\n         ]);\r\n"
+                }
+            ],
+            "date": 1665646964125,
+            "name": "Commit-0",
+            "content": "<?php\r\n\r\nnamespace App\\Controller;\r\n\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\Response;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\n\r\nclass TempsTravailController extends AbstractController\r\n{\r\n    #[Route('/temps/travail', name: 'app_temps_travail')]\r\n    public function index(): Response\r\n    {\r\n        \r\n\r\n        return $this->render('temps_travail/index.html.twig', [\r\n            'controller_name' => 'TempsTravailController',\r\n        ]);\r\n    }\r\n}\r\n"
+        }
+    ]
+}
